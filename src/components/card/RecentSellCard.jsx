@@ -5,7 +5,7 @@ export default function RecentSellCard({ sells }) {
   const displaySells = sells?.slice(0, 8) || [];
 
   return (
-    <div className="!bg-white !rounded-3xl !shadow-xl !border !border-gray-100 !overflow-hidden !h-full !flex !flex-col !transition-all hover:!shadow-2xl">
+    <div className="!bg-white !rounded-3xl !shadow-sm !border !border-solid !border-gray-200 !overflow-hidden !flex !flex-col !transition-all hover:!shadow-2xl">
       {/* Header */}
       <div className="!px-6 !py-8 !bg-gradient-to-r !from-indigo-600/5 !to-transparent">
         <div className="!flex !justify-between !items-center !gap-4">
@@ -25,7 +25,7 @@ export default function RecentSellCard({ sells }) {
       </div>
 
       {/* Table Container */}
-      <div className="!flex-1 !overflow-x-auto !custom-scrollbar !px-2 md:!px-0 !pb-4">
+      <div className="h-auto !overflow-x-auto !custom-scrollbar !px-2 md:!px-0 !pb-4">
         <table className="!w-full !text-left !border-collapse !border !border-gray-200 !min-w-[800px] md:!min-w-full">
           <thead>
             <tr className="!border-y !border-gray-200 !bg-gray-50">

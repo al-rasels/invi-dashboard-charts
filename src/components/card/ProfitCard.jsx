@@ -7,7 +7,7 @@ export default function ProfitCard({ stats }) {
     ];
 
     return (
-      <div className="!w-full !bg-white !rounded-3xl !flex !flex-col !justify-between !shadow-lg !p-6 md:!p-8 !h-full !border !border-gray-100 !group !transition-all hover:!shadow-xl">
+      <div className="!w-full !bg-white !rounded-3xl !flex !flex-col !justify-between !shadow-sm !p-6 md:!p-8 !h-full !border !border-gray-100 !group !transition-all hover:!shadow-xl">
         <div className="!flex !justify-between !items-start">
           <div>
             <h3 className="!text-gray-900 !text-lg md:!text-2xl !font-black !tracking-tight group-hover:!text-indigo-600 !transition-colors">Total Balance</h3>

@@ -22,7 +22,7 @@ export default function ClientPaymentsCard({ transactions }) {
   })) || [];
 
   return (
-    <div className="!bg-white !rounded-3xl !shadow-xl !border !border-gray-100 !overflow-hidden !h-full !flex !flex-col !transition-all hover:!shadow-2xl">
+    <div className="!bg-white !rounded-3xl !shadow-sm !border !border-solid !border-gray-200 !overflow-hidden !h-full !flex !flex-col !transition-all hover:!shadow-2xl">
       {/* Header */}
       <div className="!px-6 !py-8">
         <div className="!flex !justify-between !items-center !gap-4">

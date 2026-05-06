@@ -16,7 +16,7 @@ export default function EarningsReportCard({ chartData: rawChartData, stats }) {
   }, []);
 
   return (
-    <div className="!bg-white !p-4 md:!p-8 !rounded-3xl !shadow-xl !flex !flex-col lg:!flex-row !w-full !relative !gap-8 !border !border-gray-100 !overflow-hidden !group">
+    <div className="!bg-white !p-4 md:!p-8 !rounded-3xl !shadow-sm hover:!shadow-xl !transition-all !duration-500 !flex !flex-col lg:!flex-row !w-full !relative !gap-8 !border !border-gray-100 !overflow-hidden !group">
       {/* Decorative background element */}
       <div className="!absolute !top-0 !right-0 !-mt-20 !-mr-20 !w-64 !h-64 !bg-indigo-50 !rounded-full !blur-3xl !opacity-50 group-hover:!opacity-70 !transition-opacity !duration-1000"></div>
 

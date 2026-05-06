@@ -4,7 +4,7 @@ import React from "react";
 
 export default function ExpensesCard({ stats, mainUrl, monthlyExpenses }) {
     return (
-        <div className="!bg-white !rounded-3xl !shadow-lg !p-6 md:!p-8 !flex !flex-col !justify-between !min-h-[250px] !border !border-gray-100 !group hover:!shadow-xl !transition-all !relative !overflow-hidden !h-full">
+        <div className="!bg-white !rounded-3xl !shadow-sm !p-6 md:!p-8 !flex !flex-col !justify-between !min-h-[250px] !border !border-gray-100 !group hover:!shadow-xl !transition-all !relative !overflow-hidden !h-full">
             {/* Background Decoration */}
             <div className="!absolute !top-0 !right-0 !w-40 !h-40 !bg-rose-50 !rounded-full !-mr-20 !-mt-20 !blur-3xl !opacity-40 group-hover:!opacity-60 !transition-opacity"></div>
             <div className="!absolute !bottom-0 !left-0 !w-32 !h-32 !bg-orange-50 !rounded-full !-ml-16 !-mb-16 !blur-3xl !opacity-30"></div>

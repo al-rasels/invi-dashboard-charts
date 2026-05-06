@@ -11,7 +11,7 @@ export default function WelcomeCard({ stats, companyInfo, mainUrl }) {
 
 
   return (
-    <div className="!p-5 md:!p-7 !rounded-3xl !w-full !bg-white !shadow-2xl hover:!shadow-indigo-100 !transition-all !duration-500 !flex !flex-col md:!flex-row !justify-around !items-center !gap-5 md:!gap-8 !border !border-gray-100 !relative !overflow-hidden !m-0 !h-full">
+    <div className="!p-5 md:!p-7 !rounded-3xl !w-full !bg-white !shadow-sm hover:!shadow-xl hover:!shadow-indigo-100/50 !transition-all !duration-500 !flex !flex-col md:!flex-row !justify-around !items-center !gap-5 md:!gap-8 !border !border-gray-100 !relative !overflow-hidden !m-0 !h-full">
       {/* Background decoration */}
       <div className="!absolute !top-0 !right-0 !w-56 !h-56 !bg-indigo-50 !rounded-full !-mr-28 !-mt-28 !blur-3xl !opacity-60"></div>
       <div className="!absolute !bottom-0 !left-0 !w-40 !h-40 !bg-violet-50 !rounded-full !-ml-20 !-mb-20 !blur-2xl !opacity-40"></div>

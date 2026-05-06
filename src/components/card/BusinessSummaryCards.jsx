@@ -16,7 +16,7 @@ import {
 
 function SummaryCard({ title, subtitle, icon, items, gradient, borderColor, accentColor }) {
   return (
-    <div className={`!bg-white !rounded-3xl !shadow-lg !p-6 !border !border-gray-100 hover:!shadow-xl !transition-all !group !relative !overflow-hidden`}>
+    <div className={`!bg-white !rounded-3xl !shadow-sm hover:!shadow-xl !transition-all !duration-300 !p-6 !border !border-gray-100 !group !relative !overflow-hidden`}>
       {/* Background Decoration */}
       <div className={`!absolute !top-0 !right-0 !w-28 !h-28 ${accentColor} !rounded-full !-mr-14 !-mt-14 !blur-3xl !opacity-30 group-hover:!opacity-50 !transition-opacity`}></div>
 

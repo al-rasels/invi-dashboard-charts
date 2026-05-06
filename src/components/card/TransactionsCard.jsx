@@ -19,7 +19,7 @@ export default function TransactionsCard({ transactions }) {
   }) || [];
 
   return (
-    <div className="bg-white !rounded-3xl shadow-xl !p-6 md:!p-8 h-full border border-gray-100 flex flex-col">
+    <div className="bg-white !rounded-3xl !shadow-sm hover:!shadow-xl !transition-all !duration-500 !p-6 md:!p-8 h-full border border-gray-100 flex flex-col">
       <div className="flex justify-between items-start mb-8">
         <div>
           <h2 className="text-xl md:text-2xl font-black text-gray-800 tracking-tight">Recent <span className="text-indigo-600">Transactions</span></h2>
@@ -30,7 +30,7 @@ export default function TransactionsCard({ transactions }) {
         </button>
       </div>
 
-      <div className="space-y-4 overflow-y-auto pr-2 custom-scrollbar flex-1 max-h-[500px]">
+      <div className="space-y-4 overflow-y-auto pr-2 custom-scrollbar  max-h-[500px]">
         {displayTransactions.map((item, i) => (
           <div key={i} className={`flex justify-between items-center !p-4 !rounded-2xl border border-gray-100 transition-all hover:shadow-md hover:border-indigo-100 group cursor-pointer`}>
             <div className="flex items-center gap-4">

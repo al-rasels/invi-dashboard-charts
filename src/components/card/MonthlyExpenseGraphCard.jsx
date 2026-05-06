@@ -45,7 +45,7 @@ export default function MonthlyExpenseGraphCard({ expenses, currentMonthExpense 
     : 0;
 
   return (
-    <div className="!bg-white !rounded-3xl !shadow-xl !border !border-gray-100 !overflow-hidden !flex !flex-col !h-full !transition-all hover:!shadow-2xl">
+    <div className="!bg-white !rounded-3xl !shadow-sm !border !border-gray-100 !overflow-hidden !flex !flex-col !h-full !transition-all hover:!shadow-2xl">
       {/* Header */}
       <div className="!p-4 md:!p-6">
         <div className="!flex !flex-col sm:!flex-row !justify-between !items-start sm:!items-center !gap-3">

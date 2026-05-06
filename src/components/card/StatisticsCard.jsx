@@ -42,7 +42,7 @@ export default function StatisticsCard({ stats }) {
   ];
 
   return (
-    <div className="!bg-white !rounded-2xl !shadow-xl !p-4 md:!p-6 !w-full !border !border-gray-100 !h-full !flex !flex-col !justify-between">
+    <div className="!bg-white !rounded-2xl !shadow-sm hover:!shadow-xl !transition-all !duration-300 !p-4 md:!p-6 !w-full !border !border-gray-100 !h-full !flex !flex-col !justify-between">
       {/* Header */}
       <div className="!flex !justify-between !items-center !border-b !border-gray-100 !pb-4 !mb-6">
         <div>

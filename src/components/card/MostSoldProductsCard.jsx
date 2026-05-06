@@ -96,7 +96,7 @@ const MostSoldProductsCard = React.memo(({ products = [] }) => {
   }), [labels, hasData, topProducts]);
 
   return (
-    <div className="!bg-white !rounded-[2.5rem] !shadow-xl !p-6 md:!p-8 !flex !flex-col !h-full !border !border-gray-50 !transition-all hover:!shadow-2xl">
+    <div className="!bg-white !rounded-[2.5rem] !shadow-sm !p-6 md:!p-8 !flex !flex-col !h-full !border !border-solid !border-gray-200 !transition-all hover:!shadow-2xl">
       {/* Header */}
       <div className="!flex !items-center !justify-between !mb-6">
         <div>

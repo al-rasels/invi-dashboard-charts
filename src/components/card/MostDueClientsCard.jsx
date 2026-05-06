@@ -17,7 +17,7 @@ export default function MostDueClientsCard({ clients }) {
   const totalDue = displayClients.reduce((sum, c) => sum + (parseFloat(c.due) || 0), 0);
 
   return (
-    <div className="!bg-white !rounded-3xl !shadow-xl !p-6 md:!p-8 !h-full !border !border-gray-100 !flex !flex-col">
+    <div className="!bg-white !rounded-3xl !shadow-sm hover:!shadow-xl !transition-all !duration-500 !p-6 md:!p-8 !h-full !border !border-solid !border-gray-200 !flex !flex-col">
       {/* Header */}
       <div className="!flex !justify-between !items-start !mb-8">
         <div>
@@ -52,7 +52,7 @@ export default function MostDueClientsCard({ clients }) {
       </div>
 
       {/* Client List */}
-      <div className="!space-y-4 !overflow-y-auto !pr-3 !custom-scrollbar !flex-1 !max-h-[600px]">
+      <div className="!space-y-4 !overflow-y-auto !pr-3 !custom-scrollbar !flex-1 !max-h-[750px]">
         {displayClients.map((client, i) => {
           const gradient = getAvatarGradient(client.name);
           return (
@@ -88,7 +88,7 @@ export default function MostDueClientsCard({ clients }) {
                 </div>
                 <button
                   title="Send SMS"
-                  className="!relative !flex !items-center !justify-center !w-10 !h-10 md:!w-12 md:!h-12 !bg-gradient-to-br !from-indigo-500 !to-violet-600 !text-white !rounded-2xl !font-black hover:!from-indigo-600 hover:!to-violet-700 !transition-all !shadow-lg !shadow-indigo-500/30 hover:!shadow-indigo-500/50 hover:!-translate-y-1 active:!translate-y-0 !group/sms"
+                  className="!relative !flex !items-center !justify-center !w-10 !h-10 md:!w-12 md:!h-12 !bg-gradient-to-bl !from-indigo-500 !to-violet-600 !text-white !rounded-2xl !font-black hover:!from-indigo-600 hover:!to-violet-700 !transition-all !shadow-lg !shadow-indigo-500/30 hover:!shadow-indigo-500/50 hover:!-translate-y-1 active:!translate-y-0 !group/sms"
                 >
                   {/* Pinging indicator to force attention */}
 

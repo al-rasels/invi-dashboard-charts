@@ -71,7 +71,7 @@ export default function MonthlySalesCard({ salesData: rawSalesData }) {
 
   return (
     <div
-      className="!bg-white !rounded-2xl !shadow-md !overflow-hidden !flex !flex-col !h-full"
+      className="!bg-white !rounded-2xl !shadow-sm hover:!shadow-xl !transition-all !duration-500 !overflow-hidden !flex !flex-col !h-full"
     >
       {/* Header */}
       <div className="!flex !flex-col sm:!flex-row !items-start sm:!items-center !justify-between !px-4 md:!px-6 !py-4 !border-b !border-gray-100 !gap-4">

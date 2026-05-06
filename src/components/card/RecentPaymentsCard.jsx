@@ -33,7 +33,7 @@ export default function RecentPaymentsCard({ payments }) {
   const totalCollected = payments?.reduce((sum, p) => sum + parseFloat(p.amount || p.paid || 0), 0) || 0;
 
   return (
-    <div className="!bg-white !rounded-3xl !shadow-xl !border !border-gray-100 !overflow-hidden !h-full !flex !flex-col !transition-all hover:!shadow-2xl">
+    <div className="!bg-white !rounded-3xl !shadow-sm !border !border-solid !border-gray-200 !overflow-hidden !h-full !flex !flex-col !transition-all hover:!shadow-2xl">
       {/* Header */}
       <div className="!px-6 !py-8">
         <div className="!flex !justify-between !items-center !gap-4">
@@ -54,7 +54,7 @@ export default function RecentPaymentsCard({ payments }) {
       </div>
 
       {/* Table Container */}
-      <div className="!flex-1 !overflow-x-auto !overflow-y-auto !max-h-[600px] !custom-scrollbar !px-2 md:!px-0 !pb-4">
+      <div className="!flex-1 !overflow-x-auto !overflow-y-auto !max-h-[750px] !custom-scrollbar !px-2 md:!px-0 !pb-4">
         <table className="!w-full !text-left !border-collapse !border !border-gray-200 !min-w-[600px] md:!min-w-full">
           <thead>
             <tr className="!border-y !border-gray-200 !bg-gray-50">
