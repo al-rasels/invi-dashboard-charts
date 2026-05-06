@@ -1,0 +1,1069 @@
+{
+  "status": "success",
+  "requested_date": "2026-05-06",
+  "company_info": {
+    "id": 1,
+    "logo": "49aa4-dpz_logo.png",
+    "name": "INVI SOFTWARE",
+    "address": "Dhaka",
+    "mobile": 1974248685,
+    "email": "info@ragory.com",
+    "secured_inventory": 1,
+    "secured_account": 1,
+    "invoice_type": 1,
+    "avg_purchase_price": 3,
+    "sms_type": "FREE",
+    "link_id": 126,
+    "shop_status": 2,
+    "admin_name": "Shohag Masudul"
+  },
+  "most_due_clients": [
+    {
+      "name": "CLIENT - 9",
+      "mobile": 8809,
+      "due": 516757.2
+    },
+    {
+      "name": "CLIENT - 100",
+      "mobile": 880100,
+      "due": 77321
+    },
+    {
+      "name": "CLIENT - 122",
+      "mobile": 880122,
+      "due": 71228
+    },
+    {
+      "name": "CLIENT - 1840",
+      "mobile": 8801840,
+      "due": 62985
+    },
+    {
+      "name": "CLIENT - 7",
+      "mobile": 8807,
+      "due": 38831
+    },
+    {
+      "name": "CLIENT - 64",
+      "mobile": 88064,
+      "due": 34695
+    },
+    {
+      "name": "CLIENT - 10",
+      "mobile": 88010,
+      "due": 26855
+    },
+    {
+      "name": "CLIENT - 37",
+      "mobile": 88037,
+      "due": 26701
+    },
+    {
+      "name": "CLIENT - 120",
+      "mobile": 880120,
+      "due": 26534.08
+    },
+    {
+      "name": "CLIENT - 117",
+      "mobile": 880117,
+      "due": 24800
+    }
+  ],
+  "total_sell": 38804095.26,
+  "total_dues": 1528908.23999999,
+  "supplier_due": 18325065.66,
+  "stock_value": 41204129.77,
+  "total_invoices": 16798,
+  "total_products": 3062,
+  "total_clients": 2437,
+  "total_suppliers": 62,
+  "todays_income": 0,
+  "todays_expense": 0,
+  "opening_balance": 0,
+  "current_month_expense": 143767,
+  "total_balance": 4153520.69,
+  "recent_sell_summary": [
+    {
+      "sell_id": 17259,
+      "entry_by": 0,
+      "created_at": "2024-10-08 21:04:36",
+      "updated_at": "2026-05-04 11:35:46",
+      "updated_by": 0,
+      "entry_date": "2026-05-04",
+      "client_id": 64,
+      "tot_bill": 1050,
+      "discount": 0,
+      "delivery": 0,
+      "other_cost": 0,
+      "paid": 0,
+      "previous_due": 33645,
+      "payment_type": 6,
+      "delivery_method": 0,
+      "note": "",
+      "plugin_data": "null",
+      "courier_que": "",
+      "status": 0,
+      "pos_point": 0,
+      "redeem_point": 0,
+      "invoice_create": "2026-05-04 11:35:46",
+      "invoice_update": "2026-05-04 11:35:46",
+      "sell_entry": 14,
+      "os_player": "",
+      "current_due": 34695,
+      "client_name": "CLIENT - 64",
+      "client_address": "\u003Cp\u003E\n\tMohakhali\u003C/p\u003E\n",
+      "client_mobile": 88064,
+      "dealer": 0,
+      "star": 0,
+      "free_sms_time": "0000-00-00 00:00:00",
+      "bin_no": "",
+      "permissions": null,
+      "pm_name": "CASH ",
+      "name": null
+    },
+    {
+      "sell_id": 17257,
+      "entry_by": 0,
+      "created_at": "2024-10-08 21:04:36",
+      "updated_at": "2026-05-04 11:35:46",
+      "updated_by": 0,
+      "entry_date": "2026-05-04",
+      "client_id": 64,
+      "tot_bill": 1395,
+      "discount": 0,
+      "delivery": 0,
+      "other_cost": 0,
+      "paid": 0,
+      "previous_due": 32250,
+      "payment_type": 6,
+      "delivery_method": 0,
+      "note": "",
+      "plugin_data": "null",
+      "courier_que": "",
+      "status": 0,
+      "pos_point": 0,
+      "redeem_point": 0,
+      "invoice_create": "2026-05-04 11:28:03",
+      "invoice_update": "2026-05-04 11:28:03",
+      "sell_entry": 14,
+      "os_player": "",
+      "current_due": 34695,
+      "client_name": "CLIENT - 64",
+      "client_address": "\u003Cp\u003E\n\tMohakhali\u003C/p\u003E\n",
+      "client_mobile": 88064,
+      "dealer": 0,
+      "star": 0,
+      "free_sms_time": "0000-00-00 00:00:00",
+      "bin_no": "",
+      "permissions": null,
+      "pm_name": "CASH ",
+      "name": null
+    },
+    {
+      "sell_id": 17261,
+      "entry_by": 1,
+      "created_at": "2026-05-04 13:22:36",
+      "updated_at": "2026-05-04 13:22:56",
+      "updated_by": 0,
+      "entry_date": "2026-05-04",
+      "client_id": 2475,
+      "tot_bill": 20,
+      "discount": 0,
+      "delivery": 0,
+      "other_cost": 0,
+      "paid": 0,
+      "previous_due": 0,
+      "payment_type": 2,
+      "delivery_method": 0,
+      "note": "",
+      "plugin_data": "{\"short_url\":\"http:\\/\\/invi.best\\/dRPxj\"}",
+      "courier_que": "",
+      "status": 0,
+      "pos_point": 0,
+      "redeem_point": 0,
+      "invoice_create": "2026-05-04 13:22:56",
+      "invoice_update": "2026-05-04 13:22:56",
+      "sell_entry": 1,
+      "os_player": "",
+      "current_due": 20,
+      "client_name": "CLIENT - 2475",
+      "client_address": "90 Dhalkanagar lane,Gandaria,Dhaka-1204",
+      "client_mobile": 1858248685,
+      "dealer": 0,
+      "star": 0,
+      "free_sms_time": "0000-00-00 00:00:00",
+      "bin_no": "",
+      "permissions": null,
+      "pm_name": "BKASH ",
+      "name": "Shohag Masudul"
+    },
+    {
+      "sell_id": 17258,
+      "entry_by": 14,
+      "created_at": "2026-05-04 11:31:12",
+      "updated_at": "2026-05-04 11:31:47",
+      "updated_by": 0,
+      "entry_date": "2026-05-04",
+      "client_id": 2474,
+      "tot_bill": 350,
+      "discount": 0,
+      "delivery": 0,
+      "other_cost": 0,
+      "paid": 350,
+      "previous_due": 0,
+      "payment_type": 6,
+      "delivery_method": 0,
+      "note": "",
+      "plugin_data": "null",
+      "courier_que": "",
+      "status": 0,
+      "pos_point": 0,
+      "redeem_point": 0,
+      "invoice_create": "2026-05-04 11:31:47",
+      "invoice_update": "2026-05-04 11:31:47",
+      "sell_entry": 14,
+      "os_player": "",
+      "current_due": 0,
+      "client_name": "CLIENT - 2474",
+      "client_address": "DHAKA",
+      "client_mobile": 8802474,
+      "dealer": 0,
+      "star": 0,
+      "free_sms_time": "0000-00-00 00:00:00",
+      "bin_no": "",
+      "permissions": null,
+      "pm_name": "CASH ",
+      "name": null
+    },
+    {
+      "sell_id": 17260,
+      "entry_by": 0,
+      "created_at": "2024-10-08 22:10:22",
+      "updated_at": "2026-05-04 11:44:54",
+      "updated_by": 0,
+      "entry_date": "2026-05-04",
+      "client_id": 117,
+      "tot_bill": 24800,
+      "discount": 0,
+      "delivery": 0,
+      "other_cost": 0,
+      "paid": 0,
+      "previous_due": 0,
+      "payment_type": 6,
+      "delivery_method": 0,
+      "note": "",
+      "plugin_data": "{\"short_url\":\"http:\\/\\/invi.best\\/dioj1CIF\",\"sms\":1}",
+      "courier_que": "",
+      "status": 0,
+      "pos_point": 0,
+      "redeem_point": 0,
+      "invoice_create": "2026-05-04 11:44:53",
+      "invoice_update": "2026-05-04 11:44:53",
+      "sell_entry": 1,
+      "os_player": "",
+      "current_due": 24800,
+      "client_name": "CLIENT - 117",
+      "client_address": "Gulshan 1",
+      "client_mobile": 880117,
+      "dealer": 0,
+      "star": 0,
+      "free_sms_time": "0000-00-00 00:00:00",
+      "bin_no": "",
+      "permissions": null,
+      "pm_name": "CASH ",
+      "name": "Shohag Masudul"
+    },
+    {
+      "sell_id": 17251,
+      "entry_by": 10,
+      "created_at": "2025-04-15 12:23:25",
+      "updated_at": "2026-05-03 22:26:14",
+      "updated_by": 0,
+      "entry_date": "2026-05-03",
+      "client_id": 643,
+      "tot_bill": 600,
+      "discount": 0,
+      "delivery": 0,
+      "other_cost": 0,
+      "paid": 600,
+      "previous_due": 0,
+      "payment_type": 18,
+      "delivery_method": 0,
+      "note": "",
+      "plugin_data": "null",
+      "courier_que": "",
+      "status": 0,
+      "pos_point": 0,
+      "redeem_point": 0,
+      "invoice_create": "2026-05-03 22:26:14",
+      "invoice_update": "2026-05-03 22:26:14",
+      "sell_entry": 1,
+      "os_player": "",
+      "current_due": 0,
+      "client_name": "CLIENT - 643",
+      "client_address": "DHAKA",
+      "client_mobile": 880643,
+      "dealer": 0,
+      "star": 0,
+      "free_sms_time": "0000-00-00 00:00:00",
+      "bin_no": "",
+      "permissions": null,
+      "pm_name": "POS PUBALI BANK N82",
+      "name": "Shohag Masudul"
+    },
+    {
+      "sell_id": 17217,
+      "entry_by": 0,
+      "created_at": "2024-10-08 21:01:25",
+      "updated_at": "2026-05-03 14:29:26",
+      "updated_by": 0,
+      "entry_date": "2026-05-03",
+      "client_id": 60,
+      "tot_bill": 330,
+      "discount": 0,
+      "delivery": 0,
+      "other_cost": 0,
+      "paid": 330,
+      "previous_due": 9555,
+      "payment_type": 6,
+      "delivery_method": 0,
+      "note": "",
+      "plugin_data": "null",
+      "courier_que": "",
+      "status": 0,
+      "pos_point": 0,
+      "redeem_point": 0,
+      "invoice_create": "2026-05-03 14:29:26",
+      "invoice_update": "2026-05-03 14:29:26",
+      "sell_entry": 14,
+      "os_player": "",
+      "current_due": 9555,
+      "client_name": "CLIENT - 60",
+      "client_address": "\u003Cp\u003E\n\tBabli Mashjid\u003C/p\u003E\n",
+      "client_mobile": 88060,
+      "dealer": 1,
+      "star": 1,
+      "free_sms_time": "0000-00-00 00:00:00",
+      "bin_no": "",
+      "permissions": null,
+      "pm_name": "CASH ",
+      "name": null
+    },
+    {
+      "sell_id": 17255,
+      "entry_by": 0,
+      "created_at": "2024-10-08 20:55:27",
+      "updated_at": "2026-05-04 00:12:52",
+      "updated_by": 0,
+      "entry_date": "2026-05-03",
+      "client_id": 54,
+      "tot_bill": 825,
+      "discount": 0,
+      "delivery": 0,
+      "other_cost": 0,
+      "paid": 1000,
+      "previous_due": 23786.7,
+      "payment_type": 2,
+      "delivery_method": 0,
+      "note": "",
+      "plugin_data": "{\"short_url\":\"http:\\/\\/invi.best\\/8WrYId\"}",
+      "courier_que": "",
+      "status": 0,
+      "pos_point": 0,
+      "redeem_point": 0,
+      "invoice_create": "2026-05-04 00:12:52",
+      "invoice_update": "2026-05-04 00:12:52",
+      "sell_entry": 1,
+      "os_player": "",
+      "current_due": 23611.7,
+      "client_name": "CLIENT - 54",
+      "client_address": "\u003Cp\u003E\n\tHatirjheel\u003C/p\u003E\n",
+      "client_mobile": 88054,
+      "dealer": 1,
+      "star": 1,
+      "free_sms_time": "0000-00-00 00:00:00",
+      "bin_no": "",
+      "permissions": null,
+      "pm_name": "BKASH ",
+      "name": "Shohag Masudul"
+    },
+    {
+      "sell_id": 17237,
+      "entry_by": 0,
+      "created_at": "2024-10-08 20:55:27",
+      "updated_at": "2026-05-04 00:12:52",
+      "updated_by": 0,
+      "entry_date": "2026-05-03",
+      "client_id": 54,
+      "tot_bill": 570,
+      "discount": 0,
+      "delivery": 0,
+      "other_cost": 0,
+      "paid": 570,
+      "previous_due": 23786.7,
+      "payment_type": 2,
+      "delivery_method": 0,
+      "note": "",
+      "plugin_data": "null",
+      "courier_que": "",
+      "status": 0,
+      "pos_point": 0,
+      "redeem_point": 0,
+      "invoice_create": "2026-05-03 20:11:08",
+      "invoice_update": "2026-05-03 20:11:08",
+      "sell_entry": 1,
+      "os_player": "",
+      "current_due": 23611.7,
+      "client_name": "CLIENT - 54",
+      "client_address": "\u003Cp\u003E\n\tHatirjheel\u003C/p\u003E\n",
+      "client_mobile": 88054,
+      "dealer": 1,
+      "star": 1,
+      "free_sms_time": "0000-00-00 00:00:00",
+      "bin_no": "",
+      "permissions": null,
+      "pm_name": "BKASH ",
+      "name": "Shohag Masudul"
+    },
+    {
+      "sell_id": 17224,
+      "entry_by": 0,
+      "created_at": "2024-10-08 20:55:27",
+      "updated_at": "2026-05-04 00:12:52",
+      "updated_by": 0,
+      "entry_date": "2026-05-03",
+      "client_id": 54,
+      "tot_bill": 1150,
+      "discount": 0,
+      "delivery": 0,
+      "other_cost": 0,
+      "paid": 1150,
+      "previous_due": 23786.7,
+      "payment_type": 2,
+      "delivery_method": 0,
+      "note": "",
+      "plugin_data": "null",
+      "courier_que": "",
+      "status": 0,
+      "pos_point": 0,
+      "redeem_point": 0,
+      "invoice_create": "2026-05-03 15:18:39",
+      "invoice_update": "2026-05-03 15:18:39",
+      "sell_entry": 14,
+      "os_player": "",
+      "current_due": 23611.7,
+      "client_name": "CLIENT - 54",
+      "client_address": "\u003Cp\u003E\n\tHatirjheel\u003C/p\u003E\n",
+      "client_mobile": 88054,
+      "dealer": 1,
+      "star": 1,
+      "free_sms_time": "0000-00-00 00:00:00",
+      "bin_no": "",
+      "permissions": null,
+      "pm_name": "BKASH ",
+      "name": null
+    }
+  ],
+  "recent_collections": [
+    {
+      "amount": 2030,
+      "entry_date": "2026-05-03",
+      "client_name": "CLIENT - 140",
+      "pm_name": "CASH "
+    },
+    {
+      "amount": 10000,
+      "entry_date": "2026-05-02",
+      "client_name": "CLIENT - 5",
+      "pm_name": "CASH "
+    },
+    {
+      "amount": 1000,
+      "entry_date": "2026-05-02",
+      "client_name": "CLIENT - 136",
+      "pm_name": "CASH "
+    },
+    {
+      "amount": 2000,
+      "entry_date": "2026-05-02",
+      "client_name": "CLIENT - 136",
+      "pm_name": "CASH "
+    },
+    {
+      "amount": 10000,
+      "entry_date": "2026-05-01",
+      "client_name": "CLIENT - 120",
+      "pm_name": "CASH "
+    },
+    {
+      "amount": 1600,
+      "entry_date": "2026-05-01",
+      "client_name": "CLIENT - 1729",
+      "pm_name": "CASH "
+    },
+    {
+      "amount": 2500,
+      "entry_date": "2026-05-01",
+      "client_name": "CLIENT - 2457",
+      "pm_name": "CASH "
+    },
+    {
+      "amount": 2000,
+      "entry_date": "2026-05-01",
+      "client_name": "CLIENT - 2457",
+      "pm_name": "POS PUBALI BANK N82"
+    },
+    {
+      "amount": 290,
+      "entry_date": "2026-05-01",
+      "client_name": "CLIENT - 2453",
+      "pm_name": "CASH "
+    },
+    {
+      "amount": 1930,
+      "entry_date": "2026-05-01",
+      "client_name": "CLIENT - 479",
+      "pm_name": "BKASH "
+    }
+  ],
+  "todays_office_expenses": [],
+  "current_month_expenses": [
+    {
+      "eid": 1599,
+      "voucher_id": 0,
+      "entry_date": "2026-05-01",
+      "type": 36,
+      "payment_type": 6,
+      "note": "APRIL ALL PAID ",
+      "amount": 1750,
+      "entry_by": 1,
+      "created_at": "2026-05-01 16:31:27",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "SAJIN ISLAM",
+      "pm_name": "CASH "
+    },
+    {
+      "eid": 1600,
+      "voucher_id": 0,
+      "entry_date": "2026-05-01",
+      "type": 36,
+      "payment_type": 6,
+      "note": "ADV",
+      "amount": 250,
+      "entry_by": 1,
+      "created_at": "2026-05-01 16:32:15",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "SAJIN ISLAM",
+      "pm_name": "CASH "
+    },
+    {
+      "eid": 1601,
+      "voucher_id": 0,
+      "entry_date": "2026-05-01",
+      "type": 8,
+      "payment_type": 6,
+      "note": "",
+      "amount": 30,
+      "entry_by": 14,
+      "created_at": "2026-05-01 20:26:10",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "Daily Office Expenses ",
+      "pm_name": "CASH "
+    },
+    {
+      "eid": 1602,
+      "voucher_id": 0,
+      "entry_date": "2026-05-01",
+      "type": 8,
+      "payment_type": 6,
+      "note": "TONG TEA STOR ",
+      "amount": 500,
+      "entry_by": 1,
+      "created_at": "2026-05-02 00:30:50",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "Daily Office Expenses ",
+      "pm_name": "CASH "
+    },
+    {
+      "eid": 1603,
+      "voucher_id": 0,
+      "entry_date": "2026-05-01",
+      "type": 8,
+      "payment_type": 6,
+      "note": "ADJ",
+      "amount": 65,
+      "entry_by": 1,
+      "created_at": "2026-05-02 00:31:23",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "Daily Office Expenses ",
+      "pm_name": "CASH "
+    },
+    {
+      "eid": 1604,
+      "voucher_id": 0,
+      "entry_date": "2026-05-02",
+      "type": 33,
+      "payment_type": 6,
+      "note": "",
+      "amount": 50,
+      "entry_by": 1,
+      "created_at": "2026-05-02 17:45:48",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "BIKER LANE ALL COST ",
+      "pm_name": "CASH "
+    },
+    {
+      "eid": 1605,
+      "voucher_id": 0,
+      "entry_date": "2026-05-02",
+      "type": 33,
+      "payment_type": 6,
+      "note": "RUBEL",
+      "amount": 100,
+      "entry_by": 1,
+      "created_at": "2026-05-02 20:46:26",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "BIKER LANE ALL COST ",
+      "pm_name": "CASH "
+    },
+    {
+      "eid": 1606,
+      "voucher_id": 0,
+      "entry_date": "2026-05-02",
+      "type": 8,
+      "payment_type": 6,
+      "note": "MELON NASATA",
+      "amount": 50,
+      "entry_by": 1,
+      "created_at": "2026-05-02 22:03:18",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "Daily Office Expenses ",
+      "pm_name": "CASH "
+    },
+    {
+      "eid": 1607,
+      "voucher_id": 0,
+      "entry_date": "2026-05-02",
+      "type": 36,
+      "payment_type": 6,
+      "note": "",
+      "amount": 200,
+      "entry_by": 1,
+      "created_at": "2026-05-02 23:47:46",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "SAJIN ISLAM",
+      "pm_name": "CASH "
+    },
+    {
+      "eid": 1608,
+      "voucher_id": 0,
+      "entry_date": "2026-05-03",
+      "type": 36,
+      "payment_type": 6,
+      "note": "",
+      "amount": 100,
+      "entry_by": 14,
+      "created_at": "2026-05-03 14:35:55",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "SAJIN ISLAM",
+      "pm_name": "CASH "
+    },
+    {
+      "eid": 1609,
+      "voucher_id": 0,
+      "entry_date": "2026-05-03",
+      "type": 14,
+      "payment_type": 6,
+      "note": "LUNCE ",
+      "amount": 170,
+      "entry_by": 14,
+      "created_at": "2026-05-03 16:14:39",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "Owner Expense",
+      "pm_name": "CASH "
+    },
+    {
+      "eid": 1610,
+      "voucher_id": 0,
+      "entry_date": "2026-05-03",
+      "type": 8,
+      "payment_type": 6,
+      "note": "",
+      "amount": 70,
+      "entry_by": 1,
+      "created_at": "2026-05-03 20:14:03",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "Daily Office Expenses ",
+      "pm_name": "CASH "
+    },
+    {
+      "eid": 1612,
+      "voucher_id": 0,
+      "entry_date": "2026-05-03",
+      "type": 37,
+      "payment_type": 7,
+      "note": "APRIL ALL PAID 8 DAYS",
+      "amount": 800,
+      "entry_by": 1,
+      "created_at": "2026-05-03 22:36:24",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "MAMUN SALARY",
+      "pm_name": "SHOHAG SELF ACCOUNT "
+    },
+    {
+      "eid": 1613,
+      "voucher_id": 0,
+      "entry_date": "2026-05-03",
+      "type": 38,
+      "payment_type": 6,
+      "note": "APRIL PAID ",
+      "amount": 5000,
+      "entry_by": 1,
+      "created_at": "2026-05-03 22:38:33",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "RAKIB VAI SALARY",
+      "pm_name": "CASH "
+    },
+    {
+      "eid": 1614,
+      "voucher_id": 0,
+      "entry_date": "2026-05-03",
+      "type": 36,
+      "payment_type": 6,
+      "note": "",
+      "amount": 200,
+      "entry_by": 1,
+      "created_at": "2026-05-04 00:37:28",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "SAJIN ISLAM",
+      "pm_name": "CASH "
+    },
+    {
+      "eid": 1615,
+      "voucher_id": 0,
+      "entry_date": "2026-05-04",
+      "type": 37,
+      "payment_type": 6,
+      "note": "",
+      "amount": 20,
+      "entry_by": 14,
+      "created_at": "2026-05-04 11:36:51",
+      "updated_by": 0,
+      "updated_at": "0000-00-00 00:00:00",
+      "oc_name": "MAMUN SALARY",
+      "pm_name": "CASH "
+    }
+  ],
+  "payment_methods": [
+    {
+      "pm_id": 1,
+      "pm_name": "BRAC BANK ",
+      "balance": 254325.050000001
+    },
+    {
+      "pm_id": 2,
+      "pm_name": "BKASH ",
+      "balance": 224813
+    },
+    {
+      "pm_id": 3,
+      "pm_name": "DUTCH BANGLA BANK ",
+      "balance": 110418.98
+    },
+    {
+      "pm_id": 4,
+      "pm_name": "POS DBBL-2500",
+      "balance": 15650
+    },
+    {
+      "pm_id": 5,
+      "pm_name": "POS CITY BANK",
+      "balance": 82090
+    },
+    {
+      "pm_id": 6,
+      "pm_name": "CASH ",
+      "balance": 4470
+    },
+    {
+      "pm_id": 7,
+      "pm_name": "SHOHAG SELF ACCOUNT ",
+      "balance": 2869739.66
+    },
+    {
+      "pm_id": 8,
+      "pm_name": "BRAC BANK DEPOSITE",
+      "balance": 102000
+    },
+    {
+      "pm_id": 9,
+      "pm_name": "Pathao",
+      "balance": 0
+    },
+    {
+      "pm_id": 10,
+      "pm_name": "Steadfast",
+      "balance": 0
+    },
+    {
+      "pm_id": 11,
+      "pm_name": "NAGAD",
+      "balance": 57714
+    },
+    {
+      "pm_id": 12,
+      "pm_name": "ENGINE OIL ACCOUNT",
+      "balance": 0
+    },
+    {
+      "pm_id": 18,
+      "pm_name": "POS PUBALI BANK N82",
+      "balance": 376960
+    },
+    {
+      "pm_id": 19,
+      "pm_name": "PUBALI BANK PLC",
+      "balance": 22740
+    },
+    {
+      "pm_id": 20,
+      "pm_name": "DUTCH BANGLA BANK SHOHAG",
+      "balance": 32600
+    }
+  ],
+  "total_asset": 12948851.73,
+  "total_liabilities": 2704685.93000001,
+  "net_valuation": 10244165.8,
+  "monthly_sales": [
+    {
+      "month": "Jan",
+      "sell": 1998643,
+      "collection": 1851355,
+      "expense": 954488
+    },
+    {
+      "month": "Feb",
+      "sell": 2325307,
+      "collection": 2510212.05,
+      "expense": 1296826
+    },
+    {
+      "month": "Mar",
+      "sell": 1742276,
+      "collection": 1812361,
+      "expense": 2463248
+    },
+    {
+      "month": "Apr",
+      "sell": 1842279,
+      "collection": 1710573,
+      "expense": 1637631.8
+    },
+    {
+      "month": "May",
+      "sell": 244730,
+      "collection": 186390,
+      "expense": 143767
+    },
+    {
+      "month": "Jun",
+      "sell": 0,
+      "collection": 0,
+      "expense": 0
+    },
+    {
+      "month": "Jul",
+      "sell": 0,
+      "collection": 0,
+      "expense": 0
+    },
+    {
+      "month": "Aug",
+      "sell": 0,
+      "collection": 0,
+      "expense": 0
+    },
+    {
+      "month": "Sep",
+      "sell": 0,
+      "collection": 0,
+      "expense": 0
+    },
+    {
+      "month": "Oct",
+      "sell": 0,
+      "collection": 0,
+      "expense": 0
+    },
+    {
+      "month": "Nov",
+      "sell": 0,
+      "collection": 0,
+      "expense": 0
+    },
+    {
+      "month": "Dec",
+      "sell": 0,
+      "collection": 0,
+      "expense": 0
+    }
+  ],
+  "monthly_expenses": [
+    {
+      "month": "Jan",
+      "amount": 954488
+    },
+    {
+      "month": "Feb",
+      "amount": 1296826
+    },
+    {
+      "month": "Mar",
+      "amount": 2463248
+    },
+    {
+      "month": "Apr",
+      "amount": 1637631.8
+    },
+    {
+      "month": "May",
+      "amount": 143767
+    },
+    {
+      "month": "Jun",
+      "amount": 0
+    },
+    {
+      "month": "Jul",
+      "amount": 0
+    },
+    {
+      "month": "Aug",
+      "amount": 0
+    },
+    {
+      "month": "Sep",
+      "amount": 0
+    },
+    {
+      "month": "Oct",
+      "amount": 0
+    },
+    {
+      "month": "Nov",
+      "amount": 0
+    },
+    {
+      "month": "Dec",
+      "amount": 0
+    }
+  ],
+  "best_products": [
+    {
+      "label": null,
+      "quantity": 4289,
+      "value": 6.47
+    },
+    {
+      "label": "Oil Filter Gixxer/SF 16510-33G10-000",
+      "quantity": 1918,
+      "value": 0.5
+    },
+    {
+      "label": "OIL FILTER FZ 21CE344001",
+      "quantity": 1333,
+      "value": 0.36
+    },
+    {
+      "label": "Chain Kit GIXXER / SF FI 27000-30870-000",
+      "quantity": 908,
+      "value": 5.79
+    },
+    {
+      "label": "Ball Racer GIXXER SF/FI",
+      "quantity": 820,
+      "value": 1.5
+    },
+    {
+      "label": "Spark Plug CPR8EA-9 947030088500",
+      "quantity": 766,
+      "value": 0.55
+    },
+    {
+      "label": "Push Lock Yamaha 902690681400",
+      "quantity": 757,
+      "value": 0.03
+    },
+    {
+      "label": "Air Filter GIXXER MONOTONE 13780-34800-000",
+      "quantity": 748,
+      "value": 0.61
+    },
+    {
+      "label": "Air Filter FZ Fi 2GSE44500000",
+      "quantity": 627,
+      "value": 0.52
+    },
+    {
+      "label": "MOTUL 10w40 3000 Minarel 1Litter",
+      "quantity": 608,
+      "value": 0.94
+    }
+  ],
+  "daily_sales": [
+    {
+      "date": "2026-05-01",
+      "amount": 65355
+    },
+    {
+      "date": "2026-05-02",
+      "amount": 94100
+    },
+    {
+      "date": "2026-05-03",
+      "amount": 57780
+    },
+    {
+      "date": "2026-05-04",
+      "amount": 27615
+    },
+    {
+      "date": "2026-05-05",
+      "amount": 0
+    },
+    {
+      "date": "2026-05-06",
+      "amount": 0
+    }
+  ],
+  "supplier_stats": {
+    "totalPurchase": 42757969.84,
+    "totalPayment": 40053283.91,
+    "remain": 2704685.93000001
+  },
+  "client_stats": {
+    "totalSell": 39347832.49,
+    "totalPayment": 38146800.6,
+    "remain": 1201031.88999999
+  },
+  "product_stats": {
+    "stock_in": 41240491.12,
+    "stock_out": 33646191.97,
+    "total_stock": 7594299.15000001
+  }
+}

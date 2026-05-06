@@ -10,7 +10,7 @@ const StatCard = ({ title, value, change, icon, color }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-6">
+    <div className="bg-white !rounded-2xl shadow-sm !p-4 md:!p-6">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm font-medium text-gray-600">{title}</p>
@@ -24,7 +24,7 @@ const StatCard = ({ title, value, change, icon, color }) => {
           </p>
         </div>
         <div
-          className={`w-12 h-12 rounded-xl ${colorClasses[color]} flex items-center justify-center text-xl`}
+          className={`w-10 h-10 md:w-12 md:h-12 !rounded-xl ${colorClasses[color]} flex items-center justify-center text-lg md:text-xl`}
         >
           {icon}
         </div>

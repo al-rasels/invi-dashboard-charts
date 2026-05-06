@@ -10,7 +10,7 @@ const ProgressCard = ({ title, progress, color }) => {
   };
 
   return (
-    <div className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg">
+    <div className="flex items-center justify-between !p-2 md:!p-3 hover:bg-gray-50 !rounded-lg">
       <div className="flex-1">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm font-medium">{title}</span>
@@ -18,7 +18,7 @@ const ProgressCard = ({ title, progress, color }) => {
         </div>
         <div className="w-full bg-gray-200 rounded-full h-2">
           <div
-            className={`h-2 rounded-full ${colorClasses[color]}`}
+            className={`h-2 !rounded-full ${colorClasses[color]}`}
             style={{ width: `${progress}%` }}
           ></div>
         </div>

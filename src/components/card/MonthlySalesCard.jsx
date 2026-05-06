@@ -11,28 +11,9 @@ import {
 import {
   AiOutlinePlusCircle,
   AiOutlineMinusCircle,
-  AiOutlineZoomIn,
 } from "react-icons/ai";
-import { FaHandPaper, FaHome } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { HiOutlineMenu } from "react-icons/hi";
-
-// Sample data matching the image
-const salesData = [
-  { date: "07 Nov", amount: 65000 },
-  { date: "08 Nov", amount: 115000 },
-  { date: "09 Nov", amount: 120000 },
-  { date: "10 Nov", amount: 145000 },
-  { date: "11 Nov", amount: 212828 },
-  { date: "12 Nov", amount: 185000 },
-  { date: "13 Nov", amount: 115000 },
-  { date: "14 Nov", amount: 105000 },
-  { date: "15 Nov", amount: 70000 },
-  { date: "16 Nov", amount: 5000 },
-  { date: "17 Nov", amount: 2000 },
-  { date: "18 Nov", amount: 8000 },
-  { date: "19 Nov", amount: 65000 },
-  { date: "20 Nov", amount: 5000 },
-];
 
 // Custom tooltip component
 const CustomTooltip = ({ active, payload, label }) => {
@@ -41,7 +22,7 @@ const CustomTooltip = ({ active, payload, label }) => {
       <div className="bg-gray-900 text-white px-3 py-2 rounded-lg shadow-lg border border-gray-700">
         <p className="text-sm font-medium">{label}</p>
         <p className="text-lg font-bold text-emerald-400">
-          ${payload[0].value.toLocaleString()}
+          ৳{payload[0].value.toLocaleString()}
         </p>
       </div>
     );
@@ -65,8 +46,13 @@ const CustomDot = (props) => {
   );
 };
 
-export default function MonthlySalesCard() {
+export default function MonthlySalesCard({ salesData: rawSalesData }) {
   const [zoomLevel, setZoomLevel] = useState(1);
+
+  const salesData = rawSalesData?.map(item => ({
+    date: item.date.split('-').slice(1).reverse().join('/'), // Convert YYYY-MM-DD to MM/DD or similar
+    amount: item.amount
+  })) || [];
 
   const handleZoomIn = () => setZoomLevel((prev) => Math.min(prev + 0.2, 2));
   const handleZoomOut = () => setZoomLevel((prev) => Math.max(prev - 0.2, 0.5));
@@ -79,85 +65,76 @@ export default function MonthlySalesCard() {
     return value.toString();
   };
 
+  const peakValue = Math.max(...(salesData.map(d => d.amount) || [0]), 0);
+  const totalValue = salesData.reduce((acc, curr) => acc + curr.amount, 0);
+  const avgValue = salesData.length ? totalValue / salesData.length : 0;
+
   return (
     <div
-      className="bg-white rounded-2xl shadow-md overflow-hidden"
-      style={{ width: "100%", height: "630.286px" }}
+      className="!bg-white !rounded-2xl !shadow-md !overflow-hidden !flex !flex-col !h-full"
     >
       {/* Header */}
-      <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-        <h2 className="text-xl font-bold text-gray-800 tracking-tight">
-          Monthly Sales
+      <div className="!flex !flex-col sm:!flex-row !items-start sm:!items-center !justify-between !px-4 md:!px-6 !py-4 !border-b !border-gray-100 !gap-4">
+        <h2 className="!text-lg md:!text-xl !font-bold !text-gray-800 !tracking-tight">
+          Daily Sales Performance
         </h2>
-        <div className="flex items-center gap-2">
+        <div className="!flex !items-center !gap-1 md:!gap-2 !flex-wrap">
           <button
             onClick={handleZoomIn}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 text-gray-600 hover:text-gray-900"
+            className="!p-1.5 md:!p-2 hover:!bg-gray-100 !rounded-full !transition-colors !duration-200 !text-gray-500 hover:!text-gray-900"
             title="Zoom In"
           >
-            <AiOutlinePlusCircle size={20} />
+            <AiOutlinePlusCircle size={18} />
           </button>
           <button
             onClick={handleZoomOut}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 text-gray-600 hover:text-gray-900"
+            className="!p-1.5 md:!p-2 hover:!bg-gray-100 !rounded-full !transition-colors !duration-200 !text-gray-500 hover:!text-gray-900"
             title="Zoom Out"
           >
-            <AiOutlineMinusCircle size={20} />
-          </button>
-          <button
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 text-gray-600 hover:text-gray-900"
-            title="Zoom Select"
-          >
-            <AiOutlineZoomIn size={20} />
-          </button>
-          <button
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 text-gray-600 hover:text-gray-900"
-            title="Pan"
-          >
-            <FaHandPaper size={18} />
+            <AiOutlineMinusCircle size={18} />
           </button>
           <button
             onClick={handleReset}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 text-gray-600 hover:text-gray-900"
+            className="!p-1.5 md:!p-2 hover:!bg-gray-100 !rounded-full !transition-colors !duration-200 !text-gray-500 hover:!text-gray-900"
             title="Reset"
           >
-            <FaHome size={18} />
+            <FaHome size={16} />
           </button>
           <button
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 text-gray-600 hover:text-gray-900"
+            className="!p-1.5 md:!p-2 hover:!bg-gray-100 !rounded-full !transition-colors !duration-200 !text-gray-500 hover:!text-gray-900 !ml-2"
             title="Menu"
           >
-            <HiOutlineMenu size={20} />
+            <HiOutlineMenu size={18} />
           </button>
         </div>
       </div>
 
       {/* Stats Summary */}
-      <div className="grid grid-cols-3 gap-4 px-6 py-4 bg-gradient-to-r from-gray-50 to-white">
-        <div className="text-center">
-          <p className="text-xs text-gray-500 uppercase tracking-wider">Peak</p>
-          <p className="text-lg font-bold text-emerald-600">$212,828</p>
+      <div className="!grid !grid-cols-3 !gap-2 !px-4 md:!px-6 !py-4 !bg-gradient-to-r !from-gray-50/50 !to-white">
+        <div className="!text-center">
+          <p className="!text-[10px] md:!text-xs !text-gray-400 !uppercase !font-bold !tracking-widest !mb-1">Peak</p>
+          <p className="!text-sm md:!text-lg !font-black !text-emerald-600">৳{peakValue.toLocaleString()}</p>
         </div>
-        <div className="text-center border-x border-gray-200">
-          <p className="text-xs text-gray-500 uppercase tracking-wider">
-            Average
+        <div className="!text-center !border-x !border-gray-100">
+          <p className="!text-[10px] md:!text-xs !text-gray-400 !uppercase !font-bold !tracking-widest !mb-1">
+            Avg
           </p>
-          <p className="text-lg font-bold text-blue-600">$79,488</p>
+          <p className="!text-sm md:!text-lg !font-black !text-indigo-600">৳{avgValue.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
         </div>
-        <div className="text-center">
-          <p className="text-xs text-gray-500 uppercase tracking-wider">
+        <div className="!text-center">
+          <p className="!text-[10px] md:!text-xs !text-gray-400 !uppercase !font-bold !tracking-widest !mb-1">
             Total
           </p>
-          <p className="text-lg font-bold text-purple-600">$1.1M</p>
+          <p className="!text-sm md:!text-lg !font-black !text-purple-600">৳{(totalValue / 1000).toFixed(1)}k</p>
         </div>
       </div>
 
       {/* Chart Area */}
-      <div className="px-4 pb-4" style={{ height: "380px" }}>
+      <div className="!px-2 md:!px-4 !pb-4 !flex-1 !min-h-[300px] md:!min-h-[400px]">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             data={salesData}
-            margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+            margin={{ top: 20, right: 10, left: -15, bottom: 20 }}
           >
             <defs>
               <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
@@ -170,34 +147,21 @@ export default function MonthlySalesCard() {
             </defs>
             <CartesianGrid
               strokeDasharray="3 3"
-              stroke="#e5e7eb"
+              stroke="#f3f4f6"
               vertical={false}
             />
             <XAxis
               dataKey="date"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#6b7280", fontSize: 11 }}
+              tick={{ fill: "#9ca3af", fontSize: 10 }}
               dy={10}
-              interval={0}
-              angle={-45}
-              textAnchor="end"
-              height={60}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#6b7280", fontSize: 11 }}
+              tick={{ fill: "#9ca3af", fontSize: 10 }}
               tickFormatter={formatYAxis}
-              dx={-10}
-              label={{
-                value: "Amount",
-                angle: -90,
-                position: "insideLeft",
-                fill: "#6b7280",
-                fontSize: 12,
-                dy: 40,
-              }}
             />
             <Tooltip content={<CustomTooltip />} />
             <Line
@@ -207,31 +171,14 @@ export default function MonthlySalesCard() {
               strokeWidth={3}
               dot={<CustomDot />}
               activeDot={{
-                r: 8,
+                r: 6,
                 fill: "#f59e0b",
                 stroke: "#fff",
-                strokeWidth: 3,
+                strokeWidth: 2,
               }}
             />
           </LineChart>
         </ResponsiveContainer>
-      </div>
-
-      {/* Footer */}
-      <div className="px-6 py-2 bg-gray-50 border-t border-gray-100">
-        <div className="flex items-center justify-between text-xs text-gray-500">
-          <span>November 2024</span>
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1">
-              <span className="w-3 h-3 rounded-full bg-gradient-to-r from-lime-500 to-cyan-500" />
-              Sales Trend
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="w-3 h-3 rounded-full bg-amber-500" />
-              Data Points
-            </span>
-          </div>
-        </div>
       </div>
     </div>
   );

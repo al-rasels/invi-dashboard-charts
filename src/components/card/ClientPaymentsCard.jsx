@@ -1,190 +1,87 @@
-import { ArrowRight } from "lucide-react";
-import React, { useState } from "react";
+import { ArrowRight, Wallet, ReceiptText } from "lucide-react";
+import React from "react";
 
-const data = [
-  {
-    date: "28/11/2025",
-    client: "API TEST CLIENT",
-    total: "15,000.00",
-    payment: "3,000.00",
-  },
-  {
-    date: "27/11/2025",
-    client: "CLIENT 4",
-    total: "2,000.00",
-    payment: "2,000.00",
-  },
-  {
-    date: "26/11/2025",
-    client: "API TEST CLIENT",
-    total: "2,000.00",
-    payment: "100.00",
-  },
-  {
-    date: "25/11/2025",
-    client: "CLIENT 5154",
-    total: "195.00",
-    payment: "12.00",
-  },
-  {
-    date: "20/11/2025",
-    client: "adfasds",
-    total: "6,000.00",
-    payment: "2,323.00",
-  },
-  {
-    date: "20/11/2025",
-    client: "adfasds",
-    total: "8,400.00",
-    payment: "332.00",
-  },
-  {
-    date: "20/11/2025",
-    client: "adfasds",
-    total: "50,000.00",
-    payment: "232.00",
-  },
-  {
-    date: "20/11/2025",
-    client: "adfasds",
-    total: "5,000.00",
-    payment: "100.00",
-  },
-  {
-    date: "15/11/2025",
-    client: "CLIENT 9287",
-    total: "1,935.00",
-    payment: "0.00",
-  },
-  {
-    date: "15/11/2025",
-    client: "CLIENT 9163",
-    total: "2,950.00",
-    payment: "3,030.00",
-  },
-];
-
-// Function to generate avatar color based on client name
-const getAvatarColor = (clientName) => {
+const getAvatarColor = (clientName = "") => {
   const colors = [
-    "bg-gradient-to-br from-blue-500 to-blue-600",
-    "bg-gradient-to-br from-emerald-500 to-emerald-600",
-    "bg-gradient-to-br from-violet-500 to-violet-600",
-    "bg-gradient-to-br from-amber-500 to-amber-600",
-    "bg-gradient-to-br from-rose-500 to-rose-600",
-    "bg-gradient-to-br from-indigo-500 to-indigo-600",
+    "bg-indigo-600",
+    "bg-emerald-600",
+    "bg-rose-600",
+    "bg-amber-600",
+    "bg-blue-600",
   ];
   const index = clientName.length % colors.length;
   return colors[index];
 };
 
-
-
-
-export default function ClientPaymentsCard() {
-  const [hoveredRow, setHoveredRow] = useState(null);
-
-
+export default function ClientPaymentsCard({ transactions }) {
+  const displayData = transactions?.slice(5, 13).map(p => ({
+    date: p.entry_date,
+    client: p.client_name,
+    total: parseFloat(p.tot_bill).toLocaleString(),
+    payment: parseFloat(p.paid).toLocaleString(),
+  })) || [];
 
   return (
-    <div className="bg-white rounded-2xl shadow border border-gray-100 overflow-hidden">
+    <div className="!bg-white !rounded-3xl !shadow-xl !border !border-gray-100 !overflow-hidden !h-full !flex !flex-col !transition-all hover:!shadow-2xl">
       {/* Header */}
-      <div className="px-6 pt-6 pb-4">
-        <div className="flex justify-between items-center">
+      <div className="!px-6 !py-8">
+        <div className="!flex !justify-between !items-center !gap-4">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Recent Transactions</h2>
-            <p className="text-sm text-gray-500 mt-1">Overview of recent client payments</p>
+            <h2 className="!text-xl md:!text-2xl !font-black !text-gray-900 !tracking-tight">Payment <span className="!text-indigo-600">Breakdown</span></h2>
+            <p className="!text-xs !text-gray-400 !mt-1 !font-bold !uppercase !tracking-widest">Billing overview</p>
           </div>
-          <div className=""><button className="text-md text-blue-600 hover:text-blue-800 font-medium  flex items-center gap-1 hover:gap-2 transition-all duration-300">
-            <span>View more</span> <ArrowRight className="h-4 w-4 mr-2  text-center" />
+          <button className="!flex !items-center !gap-2 !px-4 !py-2 !bg-indigo-50 !text-indigo-600 !rounded-xl !text-xs !font-black hover:!bg-indigo-600 hover:!text-white !transition-all !group">
+            View All <ArrowRight size={14} className="group-hover:!translate-x-1 !transition-transform" />
           </button>
-          </div>
         </div>
       </div>
 
-      {/* Table */}
-      <div className="overflow-x-auto">
-        <table className="w-full">
+      {/* Table Container */}
+      <div className="!flex-1 !overflow-x-auto !custom-scrollbar !px-2 md:!px-0 !pb-4">
+        <table className="!w-full !text-left !border-collapse !border !border-gray-200 !min-w-[600px] md:!min-w-full">
           <thead>
-            <tr className="border-y border-gray-100 bg-gradient-to-r from-gray-50/50 to-gray-50">
-              <th className="py-4 px-6 text-left">
-                <div className="flex items-center space-x-2">
-                  <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Date</span>
-                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </th>
-              <th className="py-4 px-6 text-left">
-                <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Client</span>
-              </th>
-              <th className="py-4 px-6 text-left">
-                <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Total </span>
-              </th>
-              <th className="py-4 px-6 text-left">
-                <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider"> Received</span>
-              </th>
-
+            <tr className="!border-y !border-gray-200 !bg-gray-50">
+              <th className="!py-4 !px-6 !text-[10px] !font-black !text-gray-500 !uppercase !tracking-widest !border !border-gray-200">Client Name</th>
+              <th className="!py-4 !px-6 !text-[10px] !font-black !text-gray-500 !uppercase !tracking-widest !text-right !border !border-gray-200">Total Bill</th>
+              <th className="!py-4 !px-6 !text-[10px] !font-black !text-gray-500 !uppercase !tracking-widest !text-right !border !border-gray-200">Received</th>
+              <th className="!py-4 !px-6 !text-[10px] !font-black !text-gray-500 !uppercase !tracking-widest !text-center !border !border-gray-200">Status</th>
             </tr>
           </thead>
-          <tbody>
-            {data.map((row, idx) => {
-
+          <tbody className="!divide-y !divide-gray-200">
+            {displayData.map((row, idx) => {
               const avatarColor = getAvatarColor(row.client);
-
+              const isFullyPaid = row.total === row.payment;
               return (
-                <tr
-                  key={idx}
-                  className={`border-b border-gray-100 transition-all duration-300 hover:bg-gradient-to-r hover:from-indigo-50/30 hover:to-white ${hoveredRow === idx ? 'shadow-sm' : ''
-                    }`}
-                  onMouseEnter={() => setHoveredRow(idx)}
-                  onMouseLeave={() => setHoveredRow(null)}
-                >
-                  <td className="py-3 px-4">
-                    <div className="flex flex-col">
-                      <span className="font-medium text-gray-900">{row.date}</span>
-                      <span className="text-xs text-gray-500 mt-1">Last week</span>
-                    </div>
-                  </td>
-                  <td className="py-3 px-4">
-                    <div className="flex items-center space-x-3">
-                      <div className={`${avatarColor} h-10 w-10 rounded-xl flex items-center justify-center text-white font-bold shadow-sm`}>
-                        {row.client.charAt(0).toUpperCase()}
+                <tr key={idx} className="!group hover:!bg-gray-50 !transition-colors">
+                  <td className="!py-5 !px-6 !border !border-gray-200">
+                    <div className="!flex !items-center !gap-4">
+                      <div className={`!w-10 !h-10 !rounded-xl ${avatarColor} !text-white !flex !justify-center !items-center !font-black !text-xs !shadow-md !shadow-indigo-50 group-hover:!scale-110 !transition-transform !duration-300 !flex-shrink-0`}>
+                        {row.client?.charAt(0).toUpperCase()}
                       </div>
-                      <div className="min-w-0">
-                        <div className="font-medium text-gray-900 truncate max-w-[150px]">
-                          {row.client}
-                        </div>
-                        <div className="text-xs text-gray-500 truncate max-w-[150px]">
-                          ID: {row.client.replace(/\D/g, '').slice(0, 6) || 'N/A'}
-                        </div>
+                      <div className="!min-w-0">
+                        <p className="!font-black !text-gray-800 !text-sm !truncate !max-w-[120px] md:!max-w-[180px]">{row.client}</p>
+                        <p className="!text-[10px] !text-gray-400 !font-bold !mt-0.5">{row.date}</p>
                       </div>
                     </div>
                   </td>
-                  <td className="py-3 px-4">
-                    <div className="flex items-center">
-                      <span className="font-bold text-gray-900 text-lg">{row.total}</span>
+                  <td className="!py-5 !px-6 !text-right !border !border-gray-200">
+                    <span className="!font-bold !text-gray-500 !text-sm md:!text-base">৳{row.total}</span>
+                  </td>
+                  <td className="!py-5 !px-6 !text-right !border !border-gray-200">
+                    <span className="!font-black !text-indigo-600 !text-sm md:!text-base">৳{row.payment}</span>
+                  </td>
+                  <td className="!py-5 !px-6 !text-center !border !border-gray-200">
+                    <div className={`!inline-flex !items-center !gap-1.5 !px-3 !py-1 !rounded-lg !text-[10px] !font-black !uppercase ${isFullyPaid ? '!bg-emerald-50 !text-emerald-600' : '!bg-amber-50 !text-amber-600'} !border !border-transparent ${isFullyPaid ? 'group-hover:!border-emerald-200' : 'group-hover:!border-amber-200'} !transition-all`}>
+                      <div className={`!w-1.5 !h-1.5 !rounded-full ${isFullyPaid ? '!bg-emerald-500 !animate-pulse' : '!bg-amber-500'}`}></div>
+                      {isFullyPaid ? 'Full' : 'Partial'}
                     </div>
                   </td>
-                  <td className="py-3 px-4">
-                    <div className="flex items-center">
-                      <div className="mr-2 p-1.5 bg-emerald-50 rounded-lg">
-                        <svg className="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <span className="font-semibold text-emerald-700">{row.payment}</span>
-                    </div>
-                  </td>
-
                 </tr>
               );
             })}
           </tbody>
         </table>
       </div>
-
-
     </div>
   );
 }

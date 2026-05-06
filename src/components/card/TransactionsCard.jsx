@@ -1,94 +1,55 @@
 import React from "react";
-import { Banknote, CreditCard, Landmark } from "lucide-react";
+import { Banknote, CreditCard, Landmark, ShoppingBag, ArrowRight } from "lucide-react";
 
-export default function TransactionsCard() {
-  const transactions = [
-    {
-      icon: <CreditCard />,
-      title: "Wallet",
-      subtitle: "Starbucks",
-      amount: "-$75",
-      color: "text-red-500",
-      bgColor: "bg-red-50",
-      iconBgColor: "bg-linear-to-b from-red-600 to-red-400",
-    },
-    {
-      icon: <Landmark />,
-      title: "Bank Transfer",
-      subtitle: "Add Money",
-      amount: "+$480",
-      color: "text-green-500",
-      bgColor: "bg-green-50",
-      iconBgColor: "bg-linear-to-b from-green-500 to-cyan-300",
-    },
-    {
-      icon: <Banknote />,
-      title: "Paypal",
-      subtitle: "Client Payment",
-      amount: "+$268",
-      color: "text-green-500",
-      bgColor: "bg-green-50",
-      iconBgColor: "bg-linear-to-b from-green-500 to-cyan-300",
-    },
-    {
-      icon: <CreditCard />,
-      title: "Master Card",
-      subtitle: "Ordered iPhone 13",
-      amount: "-$699",
-      color: "text-red-500",
-      bgColor: "bg-red-50",
-      iconBgColor: "bg-linear-to-b from-red-600 to-red-400",
-    },
-    {
-      icon: <Landmark />,
-      title: "Bank Transactions",
-      subtitle: "Refund",
-      amount: "+$98",
-      color: "text-green-500",
-      bgColor: "bg-green-50",
-      iconBgColor: "bg-linear-to-b from-green-500 to-cyan-300",
-    },
-    {
-      icon: <Banknote />,
-      title: "Paypal",
-      subtitle: "Client Payment",
-      amount: "+$126",
-      color: "text-green-500",
-      bgColor: "bg-green-50",
-      iconBgColor: "bg-linear-to-b from-green-500 to-cyan-300",
-    },
-    {
-      icon: <Landmark />,
-      title: "Bank Transfer",
-      subtitle: "Pay Office Rent",
-      amount: "-$1290",
-      color: "text-red-500",
-      bgColor: "bg-red-50",
-      iconBgColor: "bg-linear-to-b from-red-600 to-red-400 ",
-    },
-  ];
-
-
+export default function TransactionsCard({ transactions }) {
+  const displayTransactions = transactions?.slice(0, 10).map((inv, index) => {
+    const isPaid = parseFloat(inv.paid) >= parseFloat(inv.tot_bill);
+    return {
+      icon: index % 2 === 0 ? <CreditCard size={20} /> : <Banknote size={20} />,
+      title: inv.client_name || "Unknown Client",
+      subtitle: inv.pm_name || "Standard Method",
+      amount: `${isPaid ? '+' : '-'}${parseFloat(inv.paid).toLocaleString()}`,
+      color: isPaid ? "text-emerald-600" : "text-amber-600",
+      bgColor: isPaid ? "bg-emerald-50" : "bg-amber-50",
+      iconBgColor: isPaid
+        ? "bg-gradient-to-br from-emerald-600 to-teal-400"
+        : "bg-gradient-to-br from-amber-600 to-orange-400",
+      tag: isPaid ? "Paid" : "Due"
+    };
+  }) || [];
 
   return (
-    <div className="bg-white rounded-2xl shadow p-6">
-      <h2 className="text-xl font-semibold">Transactions</h2>
-      <p className="text-gray-500 text-sm">Total 58 Transactions done in this Month</p>
+    <div className="bg-white !rounded-3xl shadow-xl !p-6 md:!p-8 h-full border border-gray-100 flex flex-col">
+      <div className="flex justify-between items-start mb-8">
+        <div>
+          <h2 className="text-xl md:text-2xl font-black text-gray-800 tracking-tight">Recent <span className="text-indigo-600">Transactions</span></h2>
+          <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Live Sales Feed</p>
+        </div>
+        <button className="!p-2.5 bg-gray-50 !rounded-xl text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all">
+          <ArrowRight size={20} strokeWidth={3} />
+        </button>
+      </div>
 
-      <div className="mt-6 space-y-6 ">
-        {transactions.map((item, i) => (
-          <div key={i} className={`flex justify-between items-center  ${item.bgColor} rounded-md px-3 py-1 `}>
-            <div className="flex items-center  gap-4">
-              <span className={`w-10 h-10 rounded-xl ${item.iconBgColor} text-white  flex justify-center items-center text-xl hover:scale-110 transition-transform hover:rotate-12 duration-300`}>
+      <div className="space-y-4 overflow-y-auto pr-2 custom-scrollbar flex-1 max-h-[500px]">
+        {displayTransactions.map((item, i) => (
+          <div key={i} className={`flex justify-between items-center !p-4 !rounded-2xl border border-gray-100 transition-all hover:shadow-md hover:border-indigo-100 group cursor-pointer`}>
+            <div className="flex items-center gap-4">
+              <div className={`w-12 h-12 !rounded-xl ${item.iconBgColor} text-white flex justify-center items-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-indigo-100`}>
                 {item.icon}
-              </span>
-              <div>
-                <p className="font-semibold">{item.title}</p>
-                <p className="text-gray-400 text-sm">{item.subtitle}</p>
+              </div>
+              <div className="min-w-0">
+                <p className="font-black text-gray-800 text-sm md:text-base truncate max-w-[150px]">{item.title}</p>
+                <div className="flex items-center gap-2">
+                  <p className="text-gray-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">{item.subtitle}</p>
+                  <span className={`text-[8px] px-1.5 py-0.5 !rounded-md font-black uppercase ${item.bgColor} ${item.color}`}>{item.tag}</span>
+                </div>
               </div>
             </div>
 
-            <p className={`font-semibold ${item.color}`}>{item.amount}</p>
+            <div className="text-right">
+              <p className={`font-black text-sm md:text-lg ${item.color}`}>{item.amount} ৳</p>
+              <p className="text-[10px] text-gray-300 font-bold">Today</p>
+            </div>
           </div>
         ))}
       </div>

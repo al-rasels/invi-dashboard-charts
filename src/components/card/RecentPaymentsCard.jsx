@@ -1,242 +1,101 @@
+import { ArrowRight, User, Banknote } from "lucide-react";
+import React from "react";
 
-import { ArrowRight } from "lucide-react";
-import React, { useState } from "react";
-
-const data = [
-  {
-    date: "28/11/2025",
-    client: "API TEST CLIENT",
-    payment: "3,000.00",
-    paymentMethod: "ISSB",
-  },
-  {
-    date: "27/11/2025",
-    client: "CLIENT 4",
-    payment: "2,000.00",
-    paymentMethod: "Cash",
-  },
-  {
-    date: "26/11/2025",
-    client: "API TEST CLIENT",
-    payment: "100.00",
-    paymentMethod: "Steadfast",
-  },
-  {
-    date: "25/11/2025",
-    client: "CLIENT 5154",
-    payment: "12.00",
-    paymentMethod: "Cash",
-  },
-  {
-    date: "20/11/2025",
-    client: "adfasds",
-    payment: "2,323.00",
-    paymentMethod: "Bank",
-  },
-  {
-    date: "20/11/2025",
-    client: "adfasds",
-    payment: "332.00",
-    paymentMethod: "Cash",
-  },
-  {
-    date: "20/11/2025",
-    client: "adfasds",
-    payment: "232.00",
-    paymentMethod: "Cash",
-  },
-  {
-    date: "20/11/2025",
-    client: "adfasds",
-    payment: "100.00",
-    paymentMethod: "Cash",
-  },
-  {
-    date: "15/11/2025",
-    client: "CLIENT 9287",
-    payment: "0.00",
-    paymentMethod: "Cash",
-  },
-  {
-    date: "15/11/2025",
-    client: "CLIENT 9163",
-    payment: "3,030.00",
-    paymentMethod: "Cash",
-  },
-];
-
-// Function to generate avatar color based on client name
-const getAvatarColor = (clientName) => {
+const getAvatarColor = (clientName = "") => {
   const colors = [
-    "bg-gradient-to-br from-blue-500 to-blue-600",
-    "bg-gradient-to-br from-emerald-500 to-emerald-600",
-    "bg-gradient-to-br from-violet-500 to-violet-600",
-    "bg-gradient-to-br from-amber-500 to-amber-600",
-    "bg-gradient-to-br from-rose-500 to-rose-600",
-    "bg-gradient-to-br from-indigo-500 to-indigo-600",
+    "from-blue-500 to-blue-600 shadow-blue-100",
+    "from-emerald-500 to-teal-600 shadow-emerald-100",
+    "from-violet-500 to-indigo-600 shadow-violet-100",
+    "from-amber-500 to-orange-600 shadow-amber-100",
+    "from-rose-500 to-pink-600 shadow-rose-100",
   ];
   const index = clientName.length % colors.length;
   return colors[index];
 };
 
-// Function to get payment method icon and color
-const getPaymentMethodInfo = (method) => {
-  const methods = {
-    "Cash": {
-
-      color: "bg-emerald-100 text-emerald-800",
-      bgColor: "bg-emerald-50",
-      iconColor: "text-emerald-600"
-    },
-    "Bank": {
-
-      color: "bg-blue-100 text-blue-800",
-      bgColor: "bg-blue-50",
-      iconColor: "text-blue-600"
-    },
-    "ISSB": {
-
-      color: "bg-purple-100 text-purple-800",
-      bgColor: "bg-purple-50",
-      iconColor: "text-purple-600"
-    },
-    "Steadfast": {
-
-      color: "bg-amber-100 text-amber-800",
-      bgColor: "bg-amber-50",
-      iconColor: "text-amber-600"
-    }
-  };
-
-  return methods[method] || {
-
-    color: "bg-gray-100 text-gray-800",
-    bgColor: "bg-gray-50",
-    iconColor: "text-gray-600"
-  };
+const getPaymentMethodInfo = (method = "") => {
+  const m = method.toUpperCase();
+  if (m.includes("CASH")) return "bg-emerald-100 text-emerald-700 border-emerald-200";
+  if (m.includes("BKASH") || m.includes("NAGAD")) return "bg-pink-100 text-pink-700 border-pink-200";
+  if (m.includes("BANK") || m.includes("POS")) return "bg-blue-100 text-blue-700 border-blue-200";
+  return "bg-gray-100 text-gray-700 border-gray-200";
 };
 
-// Function to get payment status based on amount
-const getPaymentStatus = (amount) => {
-  const num = parseFloat(amount.replace(/,/g, ''));
-  if (num === 0) return { text: "No Payment", color: "bg-gray-100 text-gray-800" };
-  if (num < 100) return { text: "Small", color: "bg-amber-100 text-amber-800" };
-  if (num < 1000) return { text: "Medium", color: "bg-blue-100 text-blue-800" };
-  return { text: "Large", color: "bg-emerald-100 text-emerald-800" };
-};
+export default function RecentPaymentsCard({ payments }) {
+  // Support both recent_collections format and recent_sell_summary format
+  const displayData = payments?.slice(0, 10).map(p => ({
+    date: p.entry_date,
+    client: p.client_name,
+    payment: parseFloat(p.amount || p.paid || 0).toLocaleString(),
+    paymentMethod: p.pm_name || "Cash"
+  })) || [];
 
-export default function RecentPaymentsCard() {
-  const [hoveredRow, setHoveredRow] = useState(null);
-
-
+  const totalCollected = payments?.reduce((sum, p) => sum + parseFloat(p.amount || p.paid || 0), 0) || 0;
 
   return (
-    <div className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
-      {/* Header with Stats */}
-      <div className="px-6 pt-6 pb-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div className="!bg-white !rounded-3xl !shadow-xl !border !border-gray-100 !overflow-hidden !h-full !flex !flex-col !transition-all hover:!shadow-2xl">
+      {/* Header */}
+      <div className="!px-6 !py-8">
+        <div className="!flex !justify-between !items-center !gap-4">
           <div>
-            <h2 className="text-xl font-bold text-gray-900">Recent Payments Received</h2>
-            <p className="text-sm text-gray-500 mt-1">Track and manage client payments</p>
+            <h2 className="!text-xl md:!text-2xl !font-black !text-gray-900 !tracking-tight">Recent <span className="!text-emerald-600">Collections</span></h2>
+            <p className="!text-xs !text-gray-400 !mt-1 !font-bold !uppercase !tracking-widest">Due Payment Received</p>
           </div>
-          <div className=""><button className="text-md text-blue-600 hover:text-blue-800 font-medium  flex items-center gap-1 hover:gap-2 transition-all duration-300">
-            <span>View more</span> <ArrowRight className="h-4 w-4 mr-2  text-center" />
-          </button>
+          <div className="!flex !items-center !gap-3">
+            <div className="!flex !items-center !gap-2 !px-3 !py-1.5 !bg-emerald-50 !rounded-xl !border !border-emerald-100">
+              <Banknote size={14} className="!text-emerald-600" />
+              <span className="!text-xs !font-black !text-emerald-700">৳{totalCollected.toLocaleString()}</span>
+            </div>
+            <button className="!flex !items-center !gap-2 !px-4 !py-2 !bg-indigo-50 !text-indigo-600 !rounded-xl !text-xs !font-black hover:!bg-indigo-600 hover:!text-white !transition-all !group">
+              View All <ArrowRight size={14} className="group-hover:!translate-x-1 !transition-transform" />
+            </button>
           </div>
-
         </div>
       </div>
 
-      {/* Table */}
-      <div className="overflow-x-auto">
-        <table className="w-full ">
+      {/* Table Container */}
+      <div className="!flex-1 !overflow-x-auto !overflow-y-auto !max-h-[600px] !custom-scrollbar !px-2 md:!px-0 !pb-4">
+        <table className="!w-full !text-left !border-collapse !border !border-gray-200 !min-w-[600px] md:!min-w-full">
           <thead>
-            <tr className="border-y border-gray-100">
-              <th className="py-3 px-4 text-left">
-                <div className="flex items-center space-x-2">
-                  <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Date</span>
-                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </th>
-              <th className="py-3 px-4 text-left">
-                <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Client</span>
-              </th>
-              <th className="py-3 px-4 text-left">
-                <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Amount</span>
-              </th>
-              <th className="py-3 px-4 text-left">
-                <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Payment Method</span>
-              </th>
-
+            <tr className="!border-y !border-gray-200 !bg-gray-50">
+              <th className="!py-4 !px-6 !text-[10px] !font-black !text-gray-500 !uppercase !tracking-widest !border !border-gray-200">Date</th>
+              <th className="!py-4 !px-6 !text-[10px] !font-black !text-gray-500 !uppercase !tracking-widest !border !border-gray-200">Client</th>
+              <th className="!py-4 !px-6 !text-[10px] !font-black !text-gray-500 !uppercase !tracking-widest !text-right !border !border-gray-200">Amount</th>
+              <th className="!py-4 !px-6 !text-[10px] !font-black !text-gray-500 !uppercase !tracking-widest !text-center !border !border-gray-200">Method</th>
             </tr>
           </thead>
-          <tbody>
-            {data.map((row, idx) => {
-              const avatarColor = getAvatarColor(row.client);
-              const paymentInfo = getPaymentMethodInfo(row.paymentMethod);
+          <tbody className="!divide-y !divide-gray-200">
+            {displayData.map((row, idx) => {
+              const avatarGrad = getAvatarColor(row.client);
+              const methodClass = getPaymentMethodInfo(row.paymentMethod);
               return (
-                <tr
-                  key={idx}
-                  className={`border-b border-gray-100 transition-all duration-200 hover:bg-gray-50/50 ${hoveredRow === idx ? 'bg-blue-50/30' : ''
-                    }`}
-                  onMouseEnter={() => setHoveredRow(idx)}
-                  onMouseLeave={() => setHoveredRow(null)}
-                >
-                  <td className="py-3 px-4">
-                    <div className="flex flex-col">
-                      <span className="font-medium text-gray-900">{row.date}</span>
-                      <span className="text-xs text-gray-500 mt-1">
-                        {new Date(row.date.split('/').reverse().join('-')).toLocaleDateString('en-US', { weekday: 'short' })}
+                <tr key={idx} className="!group hover:!bg-indigo-50/20 !transition-colors">
+                  <td className="!py-5 !px-6 !border !border-gray-200">
+                    <span className="!font-bold !text-gray-500 !text-[11px] md:!text-xs">{row.date}</span>
+                  </td>
+                  <td className="!py-5 !px-6 !border !border-gray-200">
+                    <div className="!flex !items-center !gap-4">
+                      <span className={`!w-10 !h-10 !rounded-xl bg-gradient-to-br ${avatarGrad} !shadow-lg !text-white !flex !justify-center !items-center group-hover:!scale-110 !transition-transform !duration-300 !flex-shrink-0`}>
+                        <User size={18} strokeWidth={3} />
+                      </span>
+                      <span className="!min-w-0 !flex !flex-col !justify-center">
+                        <span className="!font-black !text-gray-800 !text-sm !truncate !max-w-[120px] md:!max-w-[200px] !leading-tight">{row.client}</span>
                       </span>
                     </div>
                   </td>
-                  <td className="py-3 px-4">
-                    <div className="flex items-center space-x-3">
-                      <div className={`${avatarColor} h-10 w-10 rounded-xl flex items-center justify-center text-white font-bold shadow-sm`}>
-                        {row.client.charAt(0).toUpperCase()}
-                      </div>
-                      <div className="min-w-0">
-                        <div className="font-medium text-gray-900 truncate max-w-[150px]">
-                          {row.client}
-                        </div>
-                        <div className="text-xs text-gray-500 truncate max-w-[150px]">
-                          ID: {row.client.replace(/\D/g, '').slice(0, 6) || 'N/A'}
-                        </div>
-                      </div>
-                    </div>
+                  <td className="!py-5 !px-6 !text-right !border !border-gray-200">
+                    <span className="!font-black !text-emerald-700 !text-sm md:!text-base">৳{row.payment}</span>
                   </td>
-                  <td className="py-3 px-4">
-                    <div className="flex items-center space-x-2">
-                      <div className="flex flex-col">
-                        <span className="font-bold text-gray-900 text-lg">
-                          {row.payment}
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="py-3 px-4">
-                    <div className="flex items-center space-x-2">
-                      <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold ${paymentInfo.color}`}>
-                        {row.paymentMethod}
-                      </span>
-
-                    </div>
-                  </td>
-                  <td className="py-3 px-4">
-
+                  <td className="!py-5 !px-6 !text-center !border !border-gray-200">
+                    <span className={`!px-3 !py-1 !rounded-lg !text-[10px] !font-black !uppercase !border ${methodClass} !inline-block !min-w-[70px]`}>
+                      {row.paymentMethod}
+                    </span>
                   </td>
                 </tr>
               );
             })}
           </tbody>
         </table>
-      </div>
-      {/* Footer */}
-      <div className="px-6 py-4 bg-gray-50/50 border-t border-gray-100">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-        </div>
       </div>
     </div>
   );
