@@ -13,8 +13,8 @@ export default function StatisticsCard({ stats }) {
       shadow: "shadow-indigo-200"
     },
     {
-      title: "Total Received",
-      value: stats?.total_sell?.toLocaleString() || 0,
+      title: "Today's Income",
+      value: stats?.todays_income?.toLocaleString() || 0,
       icon: <FaChartPie />,
       iconBg: "bg-white/20",
       iconColor: "text-white",
@@ -22,8 +22,8 @@ export default function StatisticsCard({ stats }) {
       shadow: "shadow-emerald-200"
     },
     {
-      title: "Total Expense",
-      value: stats?.current_month_expense?.toLocaleString() || 0,
+      title: "Today's Expense",
+      value: stats?.todays_expense?.toLocaleString() || 0,
       icon: <FaUsers />,
       iconBg: "bg-white/20",
       iconColor: "text-white",
