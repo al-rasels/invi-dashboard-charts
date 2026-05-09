@@ -22,7 +22,7 @@ export default function ExpensesCard({ stats, mainUrl, monthlyExpenses }) {
 
                 <div className="!mt-6">
                     <p className="!text-4xl md:!text-5xl !font-black !text-gray-900 !tracking-tighter">
-                        ৳{stats?.current_month_expense?.toLocaleString() || 0}
+                        ৳ {stats?.current_month_expense?.toLocaleString() || 0}
                     </p>
                     <div className="!flex !items-center !gap-3 !mt-4">
                         <div className="!inline-flex !items-center !gap-2 !px-3 !py-1.5 !bg-rose-50 !text-rose-600 !rounded-xl !text-xs !font-black !border !border-rose-100">
@@ -42,7 +42,7 @@ export default function ExpensesCard({ stats, mainUrl, monthlyExpenses }) {
                         </div>
                         <div>
                             <p className="!text-[10px] !font-black !text-rose-400 !uppercase !tracking-widest">Today's Expense</p>
-                            <p className="!text-lg !font-black !text-rose-700">৳{stats?.todays_expense?.toLocaleString() || 0}</p>
+                            <p className="!text-lg !font-black !text-rose-700">৳ {stats?.todays_expense?.toLocaleString() || 0}</p>
                         </div>
                     </div>
                 </div>

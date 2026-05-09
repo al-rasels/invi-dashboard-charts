@@ -13,9 +13,7 @@ export default function ProfitCard({ stats }) {
             <h3 className="!text-gray-900 !text-lg md:!text-2xl !font-black !tracking-tight group-hover:!text-indigo-600 !transition-colors">Total Balance</h3>
             <p className="!text-gray-400 !text-xs md:!text-sm !font-bold !uppercase !tracking-widest !mt-1">Live Capital</p>
           </div>
-          <div className="!p-2 !bg-indigo-50 !rounded-xl !text-indigo-600 !font-black !text-xs">
-            +12.5%
-          </div>
+
         </div>
 
         <div className="!w-full !h-[120px] md:!h-[150px] !mt-4">
@@ -36,7 +34,7 @@ export default function ProfitCard({ stats }) {
         <div className="!mt-6 !flex !justify-between !items-end !w-full">
           <div>
             <p className="!text-3xl md:!text-4xl !font-black !text-gray-900 !tracking-tighter">
-              ৳{stats?.total_balance ? (stats.total_balance / 1000).toFixed(1) + 'k' : '0k'}
+              ৳ {stats?.total_balance ? (stats.total_balance).toFixed(2) : '0'}
             </p>
             <p className="!text-emerald-500 !text-xs md:!text-sm !font-bold !flex !items-center !gap-1 !mt-1">
               <span className="!w-1.5 !h-1.5 !rounded-full !bg-emerald-500 !animate-pulse"></span>

@@ -25,6 +25,7 @@ const Dashboard = () => {
   useEffect(() => {
     // 1. Fetch Stats (Fast)
     fetch(`${BASE}index.php/welcome/get_dashboard_stats`)
+      // fetch("./data/dashboard.json")
       .then((res) => res.json())
       .then((data) => setStats(data))
       .catch((err) => console.error("Error fetching stats:", err));
@@ -141,7 +142,7 @@ const Dashboard = () => {
           {/* 5. Lists and Breakdowns */}
           <div className="!grid !grid-cols-1 xl:!grid-cols-2 !gap-6">
             {!dueClients ? (
-              <div className="shimmer-effect h-[500px] rounded-3xl flex items-center justify-center font-bold text-gray-500">Loading Most Due Clients...</div>
+              <div className="shimmer-effect h-[500px] rounded-3xl flex items-center justify-center font-bold text-gray-500"></div>
             ) : (
               <MostDueClientsCard clients={Array.isArray(dueClients) ? dueClients : dueClients?.most_due_clients} />
             )}

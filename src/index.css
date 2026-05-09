@@ -31,3 +31,147 @@
     background-size: 1000px 100%;
   }
 }
+
+
+/* ===========================
+   SUBTLE GLOBAL ANIMATIONS
+   Duration & easing are tweaked
+   for a calm, professional feel.
+   =========================== */
+
+/* 1. Breathing (gentle scale) */
+@keyframes breath {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.02); }
+}
+.animate-breath {
+  animation: breath 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 2. Floating (soft vertical bob) */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 3. Pulsing (subtle opacity + scale) */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.85; transform: scale(0.98); }
+}
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+/* 4. Soft Glow (box-shadow bloom) */
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(99, 102, 241, 0.3); }
+  50%      { box-shadow: 0 0 20px rgba(99, 102, 241, 0.55); }
+}
+.animate-glow {
+  animation: glow 2.5s ease-in-out infinite;
+}
+
+/* 5. Subtle Wiggle (tiny rotation) */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25%      { transform: rotate(1deg); }
+  75%      { transform: rotate(-1deg); }
+}
+.animate-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+/* 6. Shimmer (moving gradient overlay – useful for live indicators)
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+} */
+
+/* 7. Fade In Up (one‑shot entrance, not infinite) */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* 8. Live Pulse (opacity only, like a heartbeat – great for status dots) */
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+.animate-live-pulse {
+  animation: live-pulse 1.5s ease-in-out infinite;
+}
+
+/* 9. Drift (slow, diagonal movement) */
+@keyframes drift {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(4px, -4px); }
+  100% { transform: translate(0, 0); }
+}
+.animate-drift {
+  animation: drift 6s ease-in-out infinite;
+}
+
+/* 10. Subtle Spin (very slow rotation – ideal for decorative circles) */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+/* Shine Swipe – a diagonal highlight sweeps from left to right */
+@keyframes shine-swipe {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+.animate-shine-swipe:hover {
+  background: linear-gradient(
+    120deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 75%
+  );
+  background-size: 200% 100%;
+  animation: shine-swipe 2.5s ease-in-out infinite;
+}
+/* Shine Swipe – a diagonal highlight sweeps from left to right */
+@keyframes shine-swipe {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+.animate-shine-swipe {
+  background: linear-gradient(
+    120deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 75%
+  );
+  background-size: 200% 100%;
+  animation: shine-swipe 2.5s ease-in-out infinite;
+}

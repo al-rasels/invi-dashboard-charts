@@ -69,9 +69,8 @@ export default function WelcomeCard({ stats, companyInfo, mainUrl }) {
           <p className="!text-gray-400 !font-bold !text-[9px] !uppercase !tracking-wider">Total System Revenue</p>
           <div className="!flex !items-baseline !gap-1.5">
             <span className="!text-2xl md:!text-3xl lg:!text-4xl !font-black !text-indigo-600 !tracking-tighter">
-              ৳{(stats?.total_sell / 1000000).toFixed(2)}
+              ৳ {new Intl.NumberFormat("en-BD").format(stats?.total_sell)}
             </span>
-            <span className="!text-lg md:!text-xl !font-black !text-indigo-300">M</span>
           </div>
         </div>
       </div>
