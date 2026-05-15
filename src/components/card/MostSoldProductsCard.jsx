@@ -96,17 +96,17 @@ const MostSoldProductsCard = React.memo(({ products = [] }) => {
   }), [labels, hasData, topProducts]);
 
   return (
-    <div className="!bg-white !rounded-[2.5rem] !shadow-sm !p-6 md:!p-8 !flex !flex-col !h-full !border !border-solid !border-gray-200 !transition-all hover:!shadow-2xl">
+    <div className="glass-modern !rounded-[2.5rem] !p-6 md:!p-8 !flex !flex-col !h-full !transition-all">
       {/* Header */}
       <div className="!flex !items-center !justify-between !mb-6">
         <div>
-          <h2 className="!text-xl md:!text-2xl !font-black !text-gray-900 !tracking-tight">
-            Best <span className="!text-indigo-600">Sellers</span>
+          <h2 className="!text-xl md:!text-2xl !font-black !text-white !tracking-tight">
+            Best <span className="text-vibrant-indigo">Sellers</span>
           </h2>
-          <p className="!text-[10px] !font-bold !text-gray-400 !uppercase !tracking-[0.2em] !mt-1">Inventory Performance</p>
+          <p className="!text-[10px] !font-bold !text-slate-300 !uppercase !tracking-[0.2em] !mt-1">Inventory Performance</p>
         </div>
-        <div className="!w-12 !h-12 !bg-indigo-50 !rounded-2xl !flex !items-center !justify-center !shadow-inner">
-          <i className="fas fa-trophy !text-indigo-600 !text-lg"></i>
+        <div className="!w-12 !h-12 !bg-white/10 !rounded-2xl !flex !items-center !justify-center !shadow-lg !backdrop-blur-sm">
+          <i className="fas fa-trophy text-vibrant-indigo !text-lg"></i>
         </div>
       </div>
 
@@ -118,10 +118,10 @@ const MostSoldProductsCard = React.memo(({ products = [] }) => {
           </div>
         ) : (
           <div className="!text-center !space-y-4">
-            <div className="!w-20 !h-20 !bg-gray-50 !rounded-full !flex !items-center !justify-center !mx-auto !shadow-inner">
+            <div className="!w-20 !h-20 !bg-slate-100/90 !rounded-full !flex !items-center !justify-center !mx-auto !shadow-inner">
               <i className="fas fa-chart-pie !text-gray-200 !text-2xl"></i>
               </div>
-            <p className="!text-sm !text-gray-400 !font-bold !uppercase !tracking-widest">No Sales Data</p>
+            <p className="!text-sm !text-slate-500 !font-bold !uppercase !tracking-widest">No Sales Data</p>
           </div>
         )}
       </div>

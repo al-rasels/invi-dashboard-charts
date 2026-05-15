@@ -1,0 +1,221 @@
+{
+  "status": "success",
+  "monthly_sales": [
+    {
+      "month": "Jan",
+      "sell": 1998643,
+      "collection": 1851355,
+      "expense": 954488
+    },
+    {
+      "month": "Feb",
+      "sell": 2325307,
+      "collection": 2510212.05,
+      "expense": 1296826
+    },
+    {
+      "month": "Mar",
+      "sell": 1742276,
+      "collection": 1812361,
+      "expense": 2463248
+    },
+    {
+      "month": "Apr",
+      "sell": 1842279,
+      "collection": 1710573,
+      "expense": 1637631.8
+    },
+    {
+      "month": "May",
+      "sell": 244730,
+      "collection": 186390,
+      "expense": 143767
+    },
+    {
+      "month": "Jun",
+      "sell": 0,
+      "collection": 0,
+      "expense": 0
+    },
+    {
+      "month": "Jul",
+      "sell": 0,
+      "collection": 0,
+      "expense": 0
+    },
+    {
+      "month": "Aug",
+      "sell": 0,
+      "collection": 0,
+      "expense": 0
+    },
+    {
+      "month": "Sep",
+      "sell": 0,
+      "collection": 0,
+      "expense": 0
+    },
+    {
+      "month": "Oct",
+      "sell": 0,
+      "collection": 0,
+      "expense": 0
+    },
+    {
+      "month": "Nov",
+      "sell": 0,
+      "collection": 0,
+      "expense": 0
+    },
+    {
+      "month": "Dec",
+      "sell": 0,
+      "collection": 0,
+      "expense": 0
+    }
+  ],
+  "monthly_expenses": [
+    {
+      "month": "Jan",
+      "amount": 954488
+    },
+    {
+      "month": "Feb",
+      "amount": 1296826
+    },
+    {
+      "month": "Mar",
+      "amount": 2463248
+    },
+    {
+      "month": "Apr",
+      "amount": 1637631.8
+    },
+    {
+      "month": "May",
+      "amount": 143767
+    },
+    {
+      "month": "Jun",
+      "amount": 0
+    },
+    {
+      "month": "Jul",
+      "amount": 0
+    },
+    {
+      "month": "Aug",
+      "amount": 0
+    },
+    {
+      "month": "Sep",
+      "amount": 0
+    },
+    {
+      "month": "Oct",
+      "amount": 0
+    },
+    {
+      "month": "Nov",
+      "amount": 0
+    },
+    {
+      "month": "Dec",
+      "amount": 0
+    }
+  ],
+  "best_products": [
+    {
+      "label": null,
+      "quantity": 4289,
+      "value": 6.47
+    },
+    {
+      "label": "Oil Filter Gixxer/SF 16510-33G10-000",
+      "quantity": 1918,
+      "value": 0.5
+    },
+    {
+      "label": "OIL FILTER FZ 21CE344001",
+      "quantity": 1333,
+      "value": 0.36
+    },
+    {
+      "label": "Chain Kit GIXXER / SF FI 27000-30870-000",
+      "quantity": 908,
+      "value": 5.79
+    },
+    {
+      "label": "Ball Racer GIXXER SF/FI",
+      "quantity": 820,
+      "value": 1.5
+    },
+    {
+      "label": "Spark Plug CPR8EA-9 947030088500",
+      "quantity": 766,
+      "value": 0.55
+    },
+    {
+      "label": "Push Lock Yamaha 902690681400",
+      "quantity": 757,
+      "value": 0.03
+    },
+    {
+      "label": "Air Filter GIXXER MONOTONE 13780-34800-000",
+      "quantity": 748,
+      "value": 0.61
+    },
+    {
+      "label": "Air Filter FZ Fi 2GSE44500000",
+      "quantity": 627,
+      "value": 0.52
+    },
+    {
+      "label": "MOTUL 10w40 3000 Minarel 1Litter",
+      "quantity": 608,
+      "value": 0.94
+    }
+  ],
+  "daily_sales": [
+    {
+      "date": "2026-05-01",
+      "amount": 65355
+    },
+    {
+      "date": "2026-05-02",
+      "amount": 94100
+    },
+    {
+      "date": "2026-05-03",
+      "amount": 57780
+    },
+    {
+      "date": "2026-05-04",
+      "amount": 27615
+    },
+    {
+      "date": "2026-05-05",
+      "amount": 0
+    },
+    {
+      "date": "2026-05-06",
+      "amount": 0
+    },
+    {
+      "date": "2026-05-07",
+      "amount": 0
+    },
+    {
+      "date": "2026-05-08",
+      "amount": 0
+    },
+    {
+      "date": "2026-05-09",
+      "amount": 0
+    },
+    {
+      "date": "2026-05-10",
+      "amount": 0
+    }
+  ]
+}

@@ -17,35 +17,35 @@ export default function MostDueClientsCard({ clients }) {
   const totalDue = displayClients.reduce((sum, c) => sum + (parseFloat(c.due) || 0), 0);
 
   return (
-    <div className="!bg-white !rounded-3xl !shadow-sm hover:!shadow-xl !transition-all !duration-500 !p-6 md:!p-8 !h-full !border !border-solid !border-gray-200 !flex !flex-col">
+    <div className="glass-modern glass-border-pink !rounded-3xl !transition-all !duration-500 !p-6 md:!p-8 !h-full !flex !flex-col">
       {/* Header */}
       <div className="!flex !justify-between !items-start !mb-8">
         <div>
-          <h2 className="!text-xl md:!text-2xl !font-black !text-gray-800 !tracking-tight">
-            Most Due <span className="!text-rose-600">Clients</span>
+          <h2 className="!text-xl md:!text-2xl !font-black !text-white !tracking-tight">
+            Most Due <span className="text-vibrant-pink">Clients</span>
           </h2>
-          <p className="!text-xs !font-bold !text-gray-400 !uppercase !tracking-widest !mt-1">
+          <p className="!text-xs !font-bold !text-slate-300 !uppercase !tracking-widest !mt-1">
             Top Outstanding Balances
           </p>
         </div>
-        <button className="!p-3 !bg-rose-50 !rounded-2xl !text-rose-600 hover:!bg-rose-600 hover:!text-white !transition-all !shadow-sm">
+        <button className="!p-3 !bg-white/10 hover:bg-vibrant-gradient !rounded-2xl !text-rose-400 hover:!text-white !transition-all !shadow-lg !backdrop-blur-sm">
           <ArrowRight size={20} strokeWidth={3} />
         </button>
       </div>
 
       {/* Total Due Badge */}
-      <div className="!bg-gradient-to-r !from-rose-50/50 !to-orange-50/50 !rounded-3xl !p-5 !mb-8 !border !border-rose-100/50 !backdrop-blur-sm">
+      <div className="!bg-white/5 !backdrop-blur-md !rounded-3xl !p-5 !mb-8 !border !border-white/10">
         <div className="!flex !items-center !justify-between">
           <div className="!flex !items-center !gap-4">
-            <div className="!p-3 !bg-rose-100 !rounded-2xl">
-              <AlertTriangle size={22} className="!text-rose-600" strokeWidth={3} />
+            <div className="!p-3 !bg-rose-500/20 !rounded-2xl !backdrop-blur-sm">
+              <AlertTriangle size={22} className="!text-rose-400" strokeWidth={3} />
             </div>
             <div>
-              <p className="!text-[11px] !font-black !text-rose-400 !uppercase !tracking-widest !mb-0.5">Total Outstanding</p>
-              <p className="!text-2xl !font-black !text-rose-700 !tracking-tighter">৳{totalDue.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
+              <p className="!text-[11px] !font-black !text-rose-300 !uppercase !tracking-widest !mb-0.5">Total Outstanding</p>
+              <p className="!text-2xl !font-black !text-rose-400 !tracking-tighter">৳{totalDue.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
             </div>
           </div>
-          <span className="!px-4 !py-2 !bg-rose-100 !text-rose-700 !rounded-xl !text-xs !font-black !uppercase !shadow-inner">
+          <span className="!px-4 !py-2 !bg-rose-500/20 !text-rose-100 !rounded-xl !text-xs !font-black !uppercase !shadow-lg !border !border-rose-500/30">
             {displayClients.length} Clients
           </span>
         </div>
@@ -58,19 +58,19 @@ export default function MostDueClientsCard({ clients }) {
           return (
             <div
               key={i}
-              className="!flex !justify-between !items-center !p-4 !rounded-2xl !border !border-gray-50 !transition-all hover:!shadow-lg hover:!shadow-rose-50 hover:!border-rose-100 group !bg-white"
+              className="!flex !justify-between !items-center !p-4 !rounded-2xl !border !border-white/10 !transition-all hover:!bg-white/10 hover:!border-rose-400/30 group !bg-white/5 !backdrop-blur-sm"
             >
               <div className="!flex !items-center !gap-4 !min-w-0">
-                <div className={`!w-12 !h-12 !rounded-xl !bg-gradient-to-br ${gradient} !text-white !flex !justify-center !items-center group-hover:!scale-110 !transition-transform !duration-300 !shadow-lg !shadow-indigo-100 !flex-shrink-0`}>
+                <div className={`!w-12 !h-12 !rounded-xl !bg-gradient-to-br ${gradient} !text-white !flex !justify-center !items-center group-hover:!scale-110 !transition-transform !duration-300 !shadow-xl !shadow-black/20 !flex-shrink-0`}>
                   <User size={20} strokeWidth={2.5} />
                 </div>
                 <span className="!min-w-0 !flex !flex-col !justify-center">
-                  <span className="!font-black !text-gray-800 !text-sm md:!text-base !truncate !max-w-[120px] md:!max-w-[180px] !leading-tight">
+                  <span className="!font-black !text-white !text-sm md:!text-base !truncate !max-w-[120px] md:!max-w-[180px] !leading-tight">
                     {client.name}
                   </span>
                   <span className="!flex !items-center !gap-1.5 !mt-0.5">
-                    <Phone size={10} className="!text-gray-300" />
-                    <span className="!text-gray-400 !text-[10px] md:!text-xs !font-bold !tracking-wider !leading-none">
+                    <Phone size={10} className="!text-slate-400" />
+                    <span className="!text-slate-300 !text-[10px] md:!text-xs !font-bold !tracking-wider !leading-none">
                       {client.mobile}
                     </span>
                   </span>
@@ -79,10 +79,10 @@ export default function MostDueClientsCard({ clients }) {
 
               <div className="!flex !items-center !gap-2 md:!gap-5">
                 <div className="!text-right !mr-1 md:!mr-0">
-                  <p className="!font-black !text-sm md:!text-lg !text-rose-600 !leading-none !mb-1">
+                  <p className="!font-black !text-sm md:!text-lg !text-rose-400 !leading-none !mb-1">
                     ৳{parseFloat(client.due).toLocaleString(undefined, { maximumFractionDigits: 0 })}
                   </p>
-                  <span className="!text-[9px] !px-2 !py-0.5 !rounded-lg !font-black !uppercase !bg-rose-50 !text-rose-500 !border !border-rose-100">
+                  <span className="!text-[9px] !px-2 !py-0.5 !rounded-lg !font-black !uppercase !bg-rose-500/20 !text-rose-300 !border !border-rose-500/30">
                     Due
                   </span>
                 </div>

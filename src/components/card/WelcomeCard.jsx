@@ -11,10 +11,10 @@ export default function WelcomeCard({ stats, companyInfo, mainUrl }) {
 
 
   return (
-    <div className="!p-5 md:!p-7 !rounded-3xl !w-full !bg-white !shadow-sm hover:!shadow-xl hover:!shadow-indigo-100/50 !transition-all !duration-500 !flex !flex-col md:!flex-row !justify-around !items-center !gap-5 md:!gap-8 !border !border-gray-100 !relative !overflow-hidden !m-0 !h-full">
+    <div className="glass-modern !p-5 md:!p-7 !rounded-3xl !w-full !transition-all !duration-500 !flex !flex-col md:!flex-row !justify-around !items-center !gap-5 md:!gap-8 !relative !overflow-hidden !m-0 !h-full">
       {/* Background decoration */}
-      <div className="!absolute !top-0 !right-0 !w-56 !h-56 !bg-indigo-50 !rounded-full !-mr-28 !-mt-28 !blur-3xl !opacity-60"></div>
-      <div className="!absolute !bottom-0 !left-0 !w-40 !h-40 !bg-violet-50 !rounded-full !-ml-20 !-mb-20 !blur-2xl !opacity-40"></div>
+      <div className="!absolute !top-0 !right-0 !w-56 !h-56 !bg-indigo-500 !rounded-full !-mr-28 !-mt-28 !blur-[100px] !opacity-20"></div>
+      <div className="!absolute !bottom-0 !left-0 !w-40 !h-40 !bg-fuchsia-500 !rounded-full !-ml-20 !-mb-20 !blur-[80px] !opacity-20"></div>
 
       {/* Left Content Section */}
       <div className="!relative !z-10 !flex !flex-col !justify-around !w-full md:!w-2/3 !gap-5 !h-full">
@@ -26,37 +26,37 @@ export default function WelcomeCard({ stats, companyInfo, mainUrl }) {
               <Building2 size={32} strokeWidth={2.5} />
             </span>
             <span>
-              <span className="!text-xl md:!text-2xl !font-black !text-gray-900 !tracking-tighter !leading-none !uppercase !block">
+              <span className="!text-xl md:!text-2xl !font-black !text-white !tracking-tighter !leading-none !uppercase !block">
                 {companyName}
               </span>
               <span className="!flex !items-center !gap-1.5 !mt-1">
-                <ShieldCheck size={11} className="!text-emerald-500 -mt-4" />
-                <p className="!text-[10px] !text-gray-400 !font-bold !tracking-wider !uppercase">Enterprise Verified</p>
+                <ShieldCheck size={11} className="!text-emerald-400 -mt-4" />
+                <p className="!text-[10px] !text-slate-300 !font-bold !tracking-wider !uppercase">Enterprise Verified</p>
               </span>
             </span>
           </div>
 
           {/* Welcome Message */}
           <div className="!space-y-1.5">
-            <h2 className="!text-lg md:!text-xl !font-black !text-gray-800 !tracking-tight">
+            <h2 className="!text-lg md:!text-xl !font-black !text-white !tracking-tight">
               Welcome back,{' '}
-              <span className="!text-indigo-600 !relative">
+              <span className="text-vibrant-indigo !relative">
                 {companyInfo?.admin_name}!
-                <span className="!absolute !-bottom-1 !left-0 !w-full !h-0.5 !bg-indigo-100 !rounded-full"></span>
+                <span className="!absolute !-bottom-1 !left-0 !w-full !h-0.5 !bg-indigo-400/30 !rounded-full"></span>
               </span>
             </h2>
 
             {/* Contact Information */}
             <div className="!flex !flex-wrap !items-center !gap-3 md:!gap-4 !mt-1">
-              <div className="!flex !items-center !gap-1.5 !text-gray-500 !text-[11px] !font-medium">
-                <div className="!p-1 !bg-gray-50 !rounded-lg">
-                  <Mail size={12} className="!text-indigo-500" />
+              <div className="!flex !items-center !gap-1.5 !text-slate-300 !text-[11px] !font-medium">
+                <div className="!p-1 !bg-white/10 !rounded-lg !backdrop-blur-sm">
+                  <Mail size={12} className="text-vibrant-indigo" />
                 </div>
                 <span className="!truncate !max-w-[150px] md:!max-w-none">{companyEmail}</span>
               </div>
-              <div className="!flex !items-center !gap-1.5 !text-gray-500 !text-[11px] !font-medium">
-                <div className="!p-1 !bg-gray-50 !rounded-lg">
-                  <Phone size={12} className="!text-indigo-500" />
+              <div className="!flex !items-center !gap-1.5 !text-slate-300 !text-[11px] !font-medium">
+                <div className="!p-1 !bg-white/10 !rounded-lg !backdrop-blur-sm">
+                  <Phone size={12} className="text-vibrant-indigo" />
                 </div>
                 <span>{String(companyMobile).split('/')[0]}</span>
               </div>
@@ -65,11 +65,11 @@ export default function WelcomeCard({ stats, companyInfo, mainUrl }) {
         </div>
 
         {/* Revenue Section */}
-        <div className="!space-y-1  !border-t !border-gray-100">
-          <p className="!text-gray-400 !font-bold !text-[9px] !uppercase !tracking-wider">Total System Revenue</p>
+        <div className="!space-y-1  !border-t !border-white/10">
+          <p className="!text-cyan-400  !font-bold !text-[16px]  !uppercase !tracking-wider">Todays Sell</p>
           <div className="!flex !items-baseline !gap-1.5">
-            <span className="!text-2xl md:!text-3xl lg:!text-4xl !font-black !text-indigo-600 !tracking-tighter">
-              ৳ {new Intl.NumberFormat("en-BD").format(stats?.total_sell)}
+            <span className="!text-2xl md:!text-3xl lg:!text-4xl !font-black !text-white !tracking-tighter">
+              ৳ {new Intl.NumberFormat("en-BD").format(stats?.todays_sell || 0)}
             </span>
           </div>
         </div>

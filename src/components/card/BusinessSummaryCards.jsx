@@ -14,38 +14,54 @@ import {
   Boxes,
 } from "lucide-react";
 
-function SummaryCard({ title, subtitle, icon, items, gradient, borderColor, accentColor }) {
+function SummaryCard({ title, subtitle, icon, items, gradient, glassBorder, accentColor }) {
   return (
-    <div className={`!bg-white !rounded-3xl !shadow-sm hover:!shadow-xl !transition-all !duration-300 !p-6 !border !border-gray-100 !group !relative !overflow-hidden`}>
-      {/* Background Decoration */}
-      <div className={`!absolute !top-0 !right-0 !w-28 !h-28 ${accentColor} !rounded-full !-mr-14 !-mt-14 !blur-3xl !opacity-30 group-hover:!opacity-50 !transition-opacity`}></div>
+    <div className={`glass-modern ${glassBorder} !rounded-[2.5rem] !p-0 !overflow-hidden !transition-all !duration-500 !group !relative !border !border-white/10 !shadow-2xl !shadow-black/25`}>
+      {/* Subtle Grid Pattern Overlay */}
+      <div className="!absolute !inset-0 !opacity-[0.03] !pointer-events-none" style={{
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px)`,
+        backgroundSize: '24px 24px'
+      }}></div>
 
-      {/* Header */}
-      <div className="!flex !items-center !gap-3 !mb-5 !relative !z-10">
-        <div className={`!p-3 !rounded-2xl !bg-gradient-to-br ${gradient} !text-white !shadow-lg group-hover:!scale-110 !transition-transform !duration-300`}>
-          {icon}
-        </div>
-        <span>
-          <h3 className="!font-black inline-block !text-gray-800 !text-base md:!text-lg !tracking-tight">{title}</h3>
-          <p className="!text-[10px] !font-bold !text-gray-400 !uppercase !tracking-widest">{subtitle}</p>
-        </span>
-      </div>
+      {/* Decorative Glow Orb */}
+      <div className={`!absolute !-top-12 !-right-12 !w-48 !h-48 ${accentColor} !rounded-full !blur-[60px] !opacity-10 group-hover:!opacity-25 !transition-opacity !duration-700 !pointer-events-none`}></div>
 
-      {/* Items */}
-      <div className="!space-y-3 !relative !z-10">
-        {items.map((item, idx) => (
-          <div key={idx} className={`!flex !justify-between !items-center !p-3.5 !rounded-xl ${item.bgColor || "!bg-gray-50"} !border ${item.borderColor || "!border-gray-100"} !transition-all hover:!scale-[1.02]`}>
-            <div className="!flex !items-center !gap-2.5">
-              <div className={`!w-8 !h-8 !rounded-lg ${item.iconBg || "!bg-gray-200"} !flex !items-center !justify-center`}>
-                {item.icon}
-              </div>
-              <span className="!text-sm !font-bold !text-gray-600">{item.label}</span>
-            </div>
-            <span className={`!text-base md:!text-lg !font-black ${item.valueColor || "!text-gray-800"} !tracking-tight`}>
-              ৳{item.value}
-            </span>
+      <div className="!relative !z-10 !p-6 md:!p-8 !bg-white/5 !backdrop-blur-[15px] !border-t !border-white/10">
+        {/* Header */}
+        <div className="!flex !items-center !gap-4 !mb-8 !pb-6 !border-b !border-white/10">
+          <div className={`!p-3.5 !rounded-2xl !bg-gradient-to-br ${gradient} !text-white !shadow-2xl !shadow-black/20 group-hover:!scale-110 group-hover:!rotate-3 !transition-all !duration-500`}>
+            {React.cloneElement(icon, { size: 24, strokeWidth: 2.5 })}
           </div>
-        ))}
+          <div>
+            <h3 className="!font-black !text-white !text-lg md:!text-xl !tracking-tight !leading-none">{title}</h3>
+            <p className="!text-[10px] !font-bold !text-white/50 !uppercase !tracking-[0.2em] !mt-1.5">{subtitle}</p>
+          </div>
+        </div>
+
+        {/* Items */}
+        <div className="!space-y-3.5 !divide-y !divide-white/10">
+          {items.map((item, idx) => (
+            <div key={idx} className="!group/item !relative">
+              <div 
+                className="!absolute !inset-0 !bg-white/5 !rounded-2xl !opacity-0 group-hover/item:!opacity-100 !transition-opacity !duration-300"
+              />
+              <div className="!relative !flex !justify-between !items-center !p-3 !px-4 !rounded-2xl !border !border-white/10 hover:!border-white/20 !bg-white/5 !backdrop-blur-sm hover:!bg-white/10 !transition-all !duration-300">
+                <div className="!flex !items-center !gap-3">
+                  <div className={`!w-9 !h-9 !rounded-xl !bg-white/10 !flex !items-center !justify-center !text-white/60 group-hover/item:!text-white group-hover/item:!bg-white/15 !transition-all`}>
+                    {item.icon}
+                  </div>
+                  <span className="!text-xs !font-bold !text-white/70 group-hover/item:!text-white !transition-colors">{item.label}</span>
+                </div>
+                <div className="!text-right">
+                  <span className="!text-lg md:!text-xl !font-black !text-white !tracking-tighter !tabular-nums">
+                    <span className="!text-xs !font-medium !text-white/40 !mr-1">৳</span>
+                    {item.value}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -67,148 +83,100 @@ export default function BusinessSummaryCards({ data }) {
     {
       title: "Client Summary",
       subtitle: "Receivables Overview",
-      icon: <Users size={22} strokeWidth={2.5} />,
-      gradient: "from-blue-600 to-indigo-700",
-      borderColor: "border-blue-100",
-      accentColor: "bg-blue-200",
+      icon: <Users />,
+      gradient: "from-blue-500 via-indigo-500 to-indigo-600",
+      glassBorder: "glass-border-indigo",
+      accentColor: "bg-indigo-500",
       items: [
         {
-          label: "Total Sell",
+          label: "Total Clients",
           value: formatValue(clientStats.totalSell),
-          icon: <Receipt size={14} className="text-blue-600" strokeWidth={2.5} />,
-          iconBg: "bg-blue-100",
-          bgColor: "bg-blue-50/50",
-          borderColor: "border-blue-100",
-          valueColor: "text-blue-700",
+          icon: <Receipt size={16} strokeWidth={2.5} />,
         },
         {
-          label: "Total Received",
+          label: "SMS Wallet",
           value: formatValue(clientStats.totalPayment),
-          icon: <Wallet size={14} className="text-emerald-600" strokeWidth={2.5} />,
-          iconBg: "bg-emerald-100",
-          bgColor: "bg-emerald-50/50",
-          borderColor: "border-emerald-100",
-          valueColor: "text-emerald-700",
+          icon: <Wallet size={16} strokeWidth={2.5} />,
         },
         {
-          label: "Outstanding Due",
+          label: "Due Amount",
           value: formatValue(clientStats.remain),
-          icon: <ArrowDownRight size={14} className="text-rose-600" strokeWidth={2.5} />,
-          iconBg: "bg-rose-100",
-          bgColor: "bg-rose-50/50",
-          borderColor: "border-rose-100",
-          valueColor: "text-rose-700",
+          icon: <ArrowDownRight size={16} strokeWidth={2.5} />,
         },
       ],
     },
     {
       title: "Supplier Summary",
       subtitle: "Payables Overview",
-      icon: <Truck size={22} strokeWidth={2.5} />,
-      gradient: "from-violet-600 to-purple-700",
-      borderColor: "border-violet-100",
-      accentColor: "bg-violet-200",
+      icon: <Truck />,
+      gradient: "from-fuchsia-500 via-pink-500 to-rose-600",
+      glassBorder: "glass-border-pink",
+      accentColor: "bg-pink-500",
       items: [
         {
-          label: "Total Purchase",
+          label: "Total Suppliers",
           value: formatValue(supplierStats.totalPurchase),
-          icon: <Boxes size={14} className="text-violet-600" strokeWidth={2.5} />,
-          iconBg: "bg-violet-100",
-          bgColor: "bg-violet-50/50",
-          borderColor: "border-violet-100",
-          valueColor: "text-violet-700",
+          icon: <Boxes size={16} strokeWidth={2.5} />,
         },
         {
-          label: "Total Paid",
+          label: "Supplier Wallet",
           value: formatValue(supplierStats.totalPayment),
-          icon: <CircleDollarSign size={14} className="text-emerald-600" strokeWidth={2.5} />,
-          iconBg: "bg-emerald-100",
-          bgColor: "bg-emerald-50/50",
-          borderColor: "border-emerald-100",
-          valueColor: "text-emerald-700",
+          icon: <CircleDollarSign size={16} strokeWidth={2.5} />,
         },
         {
-          label: "Supplier Due",
+          label: "Due Amount",
           value: formatValue(supplierStats.remain),
-          icon: <ArrowUpRight size={14} className="text-amber-600" strokeWidth={2.5} />,
-          iconBg: "bg-amber-100",
-          bgColor: "bg-amber-50/50",
-          borderColor: "border-amber-100",
-          valueColor: "text-amber-700",
+          icon: <ArrowUpRight size={16} strokeWidth={2.5} />,
         },
       ],
     },
     {
       title: "Net Valuation",
       subtitle: "Business Health",
-      icon: <ShieldCheck size={22} strokeWidth={2.5} />,
-      gradient: "from-emerald-600 to-teal-700",
-      borderColor: "border-emerald-100",
-      accentColor: "bg-emerald-200",
+      icon: <ShieldCheck />,
+      gradient: "from-emerald-400 via-teal-500 to-cyan-600",
+      glassBorder: "glass-border-emerald",
+      accentColor: "bg-emerald-500",
       items: [
         {
           label: "Total Asset",
           value: formatValue(data?.total_asset),
-          icon: <TrendingUp size={14} className="text-emerald-600" strokeWidth={2.5} />,
-          iconBg: "bg-emerald-100",
-          bgColor: "bg-emerald-50/50",
-          borderColor: "border-emerald-100",
-          valueColor: "text-emerald-700",
+          icon: <TrendingUp size={16} strokeWidth={2.5} />,
         },
         {
           label: "Total Liabilities",
           value: formatValue(data?.total_liabilities),
-          icon: <ArrowDownRight size={14} className="text-rose-600" strokeWidth={2.5} />,
-          iconBg: "bg-rose-100",
-          bgColor: "bg-rose-50/50",
-          borderColor: "border-rose-100",
-          valueColor: "text-rose-700",
+          icon: <ArrowDownRight size={16} strokeWidth={2.5} />,
         },
         {
           label: "Net Worth",
           value: formatValue(data?.net_valuation),
-          icon: <BarChart3 size={14} className="text-indigo-600" strokeWidth={2.5} />,
-          iconBg: "bg-indigo-100",
-          bgColor: "bg-indigo-50/50",
-          borderColor: "border-indigo-100",
-          valueColor: "text-indigo-700",
+          icon: <BarChart3 size={16} strokeWidth={2.5} />,
         },
       ],
     },
     {
-      title: "Inventory Stats",
+      title: "Product Summary",
       subtitle: "Stock Overview",
-      icon: <Package size={22} strokeWidth={2.5} />,
-      gradient: "from-amber-500 to-orange-600",
-      borderColor: "border-amber-100",
-      accentColor: "bg-amber-200",
+      icon: <Package />,
+      gradient: "from-amber-400 via-orange-500 to-orange-600",
+      glassBorder: "glass-border-amber",
+      accentColor: "bg-amber-500",
       items: [
         {
-          label: "Stock In (Value)",
-          value: formatValue(productStats.stock_in),
-          icon: <ArrowUpRight size={14} className="text-emerald-600" strokeWidth={2.5} />,
-          iconBg: "bg-emerald-100",
-          bgColor: "bg-emerald-50/50",
-          borderColor: "border-emerald-100",
-          valueColor: "text-emerald-700",
-        },
-        {
-          label: "Stock Out (Value)",
-          value: formatValue(productStats.stock_out),
-          icon: <ArrowDownRight size={14} className="text-rose-600" strokeWidth={2.5} />,
-          iconBg: "bg-rose-100",
-          bgColor: "bg-rose-50/50",
-          borderColor: "border-rose-100",
-          valueColor: "text-rose-700",
-        },
-        {
-          label: "Current Stock",
+          label: "Total Products",
           value: formatValue(productStats.total_stock),
-          icon: <Boxes size={14} className="text-amber-600" strokeWidth={2.5} />,
-          iconBg: "bg-amber-100",
-          bgColor: "bg-amber-50/50",
-          borderColor: "border-amber-100",
-          valueColor: "text-amber-700",
+          icon: <Boxes size={16} strokeWidth={2.5} />,
+        },
+        {
+          label: "Due Amount",
+          value: formatValue(productStats.stock_out),
+          icon: <ArrowDownRight size={16} strokeWidth={2.5} />,
+        },
+        {
+          label: "Inventory Value",
+          value: formatValue(productStats.stock_in),
+          icon: <ArrowUpRight size={16} strokeWidth={2.5} />,
         },
       ],
     },

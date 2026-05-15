@@ -7,11 +7,11 @@ export default function ProfitCard({ stats }) {
     ];
 
     return (
-      <div className="!w-full !bg-white !rounded-3xl !flex !flex-col !justify-between !shadow-sm !p-6 md:!p-8 !h-full !border !border-gray-100 !group !transition-all hover:!shadow-xl">
+      <div className="glass-modern !w-full !rounded-3xl !flex !flex-col !justify-between !p-6 md:!p-8 !h-full !group !transition-all">
         <div className="!flex !justify-between !items-start">
           <div>
-            <h3 className="!text-gray-900 !text-lg md:!text-2xl !font-black !tracking-tight group-hover:!text-indigo-600 !transition-colors">Total Balance</h3>
-            <p className="!text-gray-400 !text-xs md:!text-sm !font-bold !uppercase !tracking-widest !mt-1">Live Capital</p>
+            <h3 className="!text-white !text-lg md:!text-2xl !font-black !tracking-tight group-hover:text-vibrant-indigo !transition-colors">Total Balance</h3>
+            <p className="!text-slate-400 !text-xs md:!text-sm !font-bold !uppercase !tracking-widest !mt-1">Live Capital</p>
           </div>
 
         </div>
@@ -33,7 +33,7 @@ export default function ProfitCard({ stats }) {
 
         <div className="!mt-6 !flex !justify-between !items-end !w-full">
           <div>
-            <p className="!text-3xl md:!text-4xl !font-black !text-gray-900 !tracking-tighter">
+            <p className="!text-3xl md:!text-4xl !font-black !text-white !tracking-tighter">
               ৳ {stats?.total_balance ? (stats.total_balance).toFixed(2) : '0'}
             </p>
             <p className="!text-emerald-500 !text-xs md:!text-sm !font-bold !flex !items-center !gap-1 !mt-1">
@@ -41,7 +41,7 @@ export default function ProfitCard({ stats }) {
               Live Syncing
             </p>
           </div>
-          <div className="!p-3 !bg-gray-50 !rounded-2xl !border !border-gray-100 group-hover:!bg-indigo-600 group-hover:!text-white !transition-all !cursor-pointer">
+          <div className="!p-3 !bg-white/10 !rounded-2xl !border !border-white/10 group-hover:bg-vibrant-gradient group-hover:!text-white !transition-all !cursor-pointer !backdrop-blur-sm">
             <svg className="!w-5 !h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
             </svg>

@@ -1,5 +1,6 @@
+import { TrendingUpIcon, UsersIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, Tooltip as ReTooltip } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, Legend, Area, ComposedChart } from 'recharts';
 
 export default function EarningsReportCard({ chartData: rawChartData, stats }) {
   const [animate, setAnimate] = useState(false);
@@ -7,8 +8,8 @@ export default function EarningsReportCard({ chartData: rawChartData, stats }) {
 
   const chartData = rawChartData?.map(item => ({
     label: item.month,
-    earn: item.sell,
-    exp: item.collection
+    sell: item.sell,
+    collection: item.collection
   })) || [];
 
   useEffect(() => {
@@ -16,36 +17,36 @@ export default function EarningsReportCard({ chartData: rawChartData, stats }) {
   }, []);
 
   return (
-    <div className="!bg-white !p-4 md:!p-8 !rounded-3xl !shadow-sm hover:!shadow-xl !transition-all !duration-500 !flex !flex-col lg:!flex-row !w-full !relative !gap-8 !border !border-gray-100 !overflow-hidden !group">
+    <div className={`glass-modern glass-border-indigo !p-3 sm:!p-4 md:!p-6 lg:!p-8 !rounded-3xl !transition-all !duration-500 !flex !flex-col xl:!flex-row !w-full !relative !gap-4 sm:!gap-6 lg:!gap-8 !overflow-hidden !group ${animate ? "!opacity-100 !translate-y-0" : "!opacity-0 !translate-y-4"}`}>
       {/* Decorative background element */}
-      <div className="!absolute !top-0 !right-0 !-mt-20 !-mr-20 !w-64 !h-64 !bg-indigo-50 !rounded-full !blur-3xl !opacity-50 group-hover:!opacity-70 !transition-opacity !duration-1000"></div>
+      <div className="!absolute !top-0 !right-0 !-mt-20 !-mr-20 !w-48 sm:!w-64 !h-48 sm:!h-64 !bg-indigo-600 !rounded-full !blur-[100px] !opacity-20 group-hover:!opacity-30 !transition-opacity !duration-1000"></div>
 
       {/* ==== LEFT CHART AREA ==== */}
-      <div className="!w-full lg:!w-2/3 lg:!pr-8 lg:!border-r !border-gray-100 !relative">
-        <div className="!flex !flex-col sm:!flex-row sm:!items-center !justify-between !mb-8 !gap-4">
-          <div>
-            <h2 className="!text-xl md:!text-2xl !font-black !text-gray-800 !tracking-tight">Sells <span className="!text-indigo-600">vs</span> Collection</h2>
-            <p className="!text-xs md:!text-sm !text-gray-400 !font-medium !mt-1">Monthly business performance overview</p>
+      <div className="!w-full xl:!w-2/3 xl:!pr-6 xl:!border-r !border-white/10 !relative">
+        <div className="!flex !flex-col sm:!flex-row sm:!items-center !justify-between !mb-4 sm:!mb-6 md:!mb-8 !gap-3 sm:!gap-4">
+          <div className="!min-w-0">
+            <h2 className="!text-lg sm:!text-xl md:!text-2xl !font-black !text-white !tracking-tight !truncate">Sells <span className="text-vibrant-indigo">vs</span> Collection</h2>
+            <p className="!text-xs sm:!text-sm !text-slate-400 !font-medium !mt-0.5 sm:!mt-1">Monthly business performance overview</p>
           </div>
 
-          <div className="!flex !gap-4 md:!gap-8 !bg-gray-50 !p-3 !rounded-2xl !border !border-gray-100">
-            <div className="!flex !items-center !gap-2.5">
-              <span className="!w-3.5 !h-3.5 !rounded-md !bg-gradient-to-tr !from-indigo-600 !to-blue-500 !shadow-md !shadow-indigo-100"></span>
-              <span className="!text-gray-700 !text-xs md:!text-sm !font-bold">Total Sells</span>
+          <div className="!flex !flex-wrap gap-2 sm:!gap-4 md:!gap-8 !bg-white/5 !p-2 sm:!p-3 !rounded-2xl !border !border-white/10 !text-xs sm:!text-sm !backdrop-blur-sm">
+            <div className="!flex !items-center !gap-2">
+              <span className="!w-2.5 sm:!w-3.5 !h-2.5 sm:!h-3.5 !rounded-md !bg-gradient-to-tr !from-indigo-500 !to-blue-400 !shadow-lg !flex-shrink-0"></span>
+              <span className="!text-white/80 !font-bold !whitespace-nowrap">Total Sells</span>
             </div>
-            <div className="!flex !items-center !gap-2.5">
-              <span className="!w-3.5 !h-3.5 !rounded-md !bg-gradient-to-tr !from-emerald-500 !to-teal-400 !shadow-md !shadow-emerald-100"></span>
-              <span className="!text-gray-700 !text-xs md:!text-sm !font-bold">Collection</span>
+            <div className="!flex !items-center !gap-2">
+              <span className="!w-2.5 sm:!w-3.5 !h-2.5 sm:!h-3.5 !rounded-md !bg-gradient-to-tr !from-emerald-400 !to-teal-300 !shadow-lg !flex-shrink-0"></span>
+              <span className="!text-white/80 !font-bold !whitespace-nowrap">Collection</span>
             </div>
           </div>
         </div>
 
         {/* ==== Custom Bar Chart ==== */}
-        <div className="!h-[300px] md:!h-[450px] !w-full">
+        <div className="!h-64 sm:!h-72 md:!h-80 lg:!h-[350px] !w-full">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={chartData}
-              margin={{ top: 5, right: 0, left: -20, bottom: 5 }}
+              margin={{ top: 10, right: 5, left: 0, bottom: 0 }}
             >
               <defs>
                 <linearGradient id="colorSells" x1="0" y1="0" x2="0" y2="1">
@@ -57,25 +58,61 @@ export default function EarningsReportCard({ chartData: rawChartData, stats }) {
                   <stop offset="95%" stopColor="#059669" stopOpacity={0.7} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-              <XAxis dataKey="label" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: "#94a3b8", fontWeight: 600 }} dy={10} />
-              <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: "#94a3b8", fontWeight: 600 }} />
-              <Tooltip
-                cursor={{ fill: "#f8fafc" }}
-                contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)', padding: '12px' }}
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
+              <XAxis 
+                dataKey="label" 
+                axisLine={false} 
+                tickLine={false} 
+                tick={{ fontSize: 10, fill: "#94a3b8", fontWeight: 700 }} 
+                dy={8} 
               />
-              <Bar dataKey="earn" fill="url(#colorSells)" radius={[6, 6, 0, 0]} barSize={window.innerWidth < 640 ? 12 : 24} />
-              <Bar dataKey="exp" fill="url(#colorColl)" radius={[6, 6, 0, 0]} barSize={window.innerWidth < 640 ? 12 : 24} />
+              <YAxis 
+                axisLine={false} 
+                tickLine={false} 
+                tick={{ fontSize: 10, fill: "#94a3b8", fontWeight: 700 }} 
+                width={35}
+                tickFormatter={(value) => {
+                  if (value >= 1000000) return `${(value / 1000000).toFixed(1)}M`;
+                  if (value >= 1000) return `${(value / 1000).toFixed(0)}k`;
+                  return value;
+                }}
+              />
+              <Tooltip
+                cursor={{ fill: "rgba(255, 255, 255, 0.05)" }}
+                content={({ active, payload, label }) => {
+                  if (active && payload && payload.length) {
+                    return (
+                      <div className="!bg-gray-900/95 !backdrop-blur-md !rounded-2xl !p-4 !shadow-2xl !border !border-white/10 !min-w-[150px]">
+                        <p className="!text-slate-400 !text-[10px] !font-black !uppercase !tracking-widest !mb-2">{label}</p>
+                        <div className="!space-y-2">
+                          {payload.map((entry, index) => (
+                            <div key={index} className="!flex !items-center !justify-between !gap-4">
+                              <div className="!flex !items-center !gap-2">
+                                <div className="!w-2 !h-2 !rounded-full" style={{ backgroundColor: entry.color }}></div>
+                                <span className="!text-slate-300 !text-xs !font-bold !capitalize">{entry.name}</span>
+                              </div>
+                              <span className="!text-white !text-xs !font-black">৳{entry.value.toLocaleString()}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  }
+                  return null;
+                }}
+              />
+              <Bar dataKey="sell" fill="url(#colorSells)" radius={[4, 4, 0, 0]} barSize={16} />
+              <Bar dataKey="collection" fill="url(#colorColl)" radius={[4, 4, 0, 0]} barSize={16} />
             </BarChart>
           </ResponsiveContainer>
         </div>
       </div>
 
       {/* ==== RIGHT PANEL ==== */}
-      <div className="!w-full lg:!w-1/3 !flex !flex-col !justify-between !pt-6 lg:!pt-0">
+      <div className="!w-full xl:!w-1/3 !flex !flex-col !justify-between !pt-4 sm:!pt-6 xl:!pt-0 !gap-4 sm:!gap-6">
         <div>
           {/* Year Dropdown */}
-          <div className="!flex !justify-end !mb-8">
+          {/* <div className="!flex !justify-end !mb-8">
             <select
               value={year}
               onChange={(e) => setYear(e.target.value)}
@@ -84,58 +121,215 @@ export default function EarningsReportCard({ chartData: rawChartData, stats }) {
               <option>Year: 2024</option>
               <option>Year: 2025</option>
             </select>
-          </div>
+          </div> */}
 
           {/* Amount Card */}
-          <div className="!bg-gradient-to-br !from-indigo-600 !via-indigo-700 !to-blue-800 !p-6 md:!p-8 !rounded-3xl !shadow-2xl !relative !overflow-hidden group/card !border !border-indigo-400/20">
-            <div className="!absolute !top-0 !right-0 !w-32 !h-32 !bg-white/10 !rounded-full !-mr-16 !-mt-16 !blur-2xl"></div>
-            <div className="!absolute !bottom-0 !left-0 !w-24 !h-24 !bg-blue-400/10 !rounded-full !-ml-12 !-mb-12 !blur-xl"></div>
+          <div className="!bg-gradient-to-br !from-indigo-600 !via-indigo-700 !to-blue-800 !px-4 sm:!px-5 !py-5 sm:!py-6 !rounded-3xl !shadow-2xl !relative !overflow-hidden !border !border-indigo-400/20">
+            {/* Decorative circles (background, unaffected) */}
+            <div className="!absolute !-top-6 !-right-6 sm:!-top-5 !-right-5 !w-20 sm:!w-24 !h-20 sm:!h-24 !bg-white/[0.07] !rounded-full"></div>
+            <div className="!absolute !-bottom-6 !-left-5 sm:!-bottom-5 sm:!-left-4 !w-16 sm:!w-18 !h-16 sm:!h-18 !bg-blue-400/10 !rounded-full"></div>
 
-            <div className="!relative !z-10 !text-center lg:!text-left">
-              <h1 className="!text-3xl md:!text-5xl !font-black !text-white !tracking-tighter !drop-shadow-md">
-                ৳{stats?.total_sell?.toLocaleString() || 0}
-              </h1>
-              <p className="!text-indigo-100 !text-sm md:!text-base !mt-2 !font-bold !uppercase !tracking-widest !opacity-90">Accumulated Revenue</p>
+            {/* Centering wrapper */}
+            <div className="!relative !z-10 !flex !flex-col !items-center !justify-center !h-full !text-center">
 
-              <div className="!mt-6 !flex !items-center !justify-center lg:!justify-start !gap-2">
-                <span className="!px-3 !py-1 !bg-white/20 !text-white !rounded-lg !text-xs !font-black !backdrop-blur-md">
-                  +24.5% Growth
+              {/* Row 1: icon label + live badge (now centered together) */}
+              <div className="!flex !flex-wrap !items-center !justify-center !gap-1.5 sm:!gap-2 !mb-2 sm:!mb-2.5">
+                <div className="!w-5 sm:!w-6.5 !h-5 sm:!h-6.5 !rounded-lg !bg-white/15 !flex !items-center !justify-center !flex-shrink-0">
+                  <UsersIcon className="!w-3 sm:!w-3.5 !h-3 sm:!h-3.5 !text-white/90" />
+                </div>
+                <span className="!text-sm sm:!text-xl !font-medium !text-white/90 !uppercase !tracking-wide !leading-tight">
+                 You have total
                 </span>
-                <span className="!text-indigo-50/60 !text-xs !font-bold !italic">Dynamic Forecast</span>
+                {/* Live badge placed right after the label */}
+                <div className="!flex !items-center !gap-1.5 !px-2 sm:!px-2.5 !py-0.5 sm:!py-1 !rounded-full !bg-white/10 !backdrop-blur-sm !ml-0 sm:!ml-1">
+                 
+                 
+                </div>
               </div>
+
+              {/* Row 2: main number */}
+              <div className="!flex !items-baseline !justify-center !gap-1 sm:!gap-1.5 !mb-1">
+              
+                <span className="!text-2xl sm:!text-3xl md:!text-4xl lg:!text-5xl !font-bold !text-white !tracking-tight !leading-none">
+                  ৳{new Intl.NumberFormat("en-BD").format(stats?.due_clients || 0)}
+                </span>
+              </div>
+
+              {/* Row 3: description */}
+              <p className="!text-xs sm:!text-sm md:!text-base !text-white/80 !leading-snug !mb-1 sm:!mb-1.5 !m-0">
+                Total outstanding client dues
+              </p>
+
+              {/* Severity level badge (centered) */}
+             
+
+            
             </div>
           </div>
         </div>
 
         {/* ==== Mini Graph Area ==== */}
-        <div className="!mt-8 !flex-1 !flex !flex-col">
-          <p className="!text-xs !font-bold !text-gray-400 !uppercase !tracking-widest !mb-4">Collection Trend</p>
-          <div className="!h-[120px] md:!h-[180px] !w-full">
+        <div className="!mt-4 sm:!mt-6 !flex-1 !flex !flex-col !min-h-0">
+      
+
+          <div className="!h-52 sm:!h-60 md:!h-72 lg:!h-80 !w-full !flex-1">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={chartData}>
+              <ComposedChart data={chartData} margin={{ top: 10, right: 5, left: 0, bottom: 5 }}>
+                {/* Gradient definitions (unchanged) */}
                 <defs>
-                  <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stopColor="#6366f1" />
-                    <stop offset="100%" stopColor="#8b5cf6" />
+                  <linearGradient id="lineGrad1" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="5%" stopColor="#6366f1" stopOpacity={0.9} />
+                    <stop offset="95%" stopColor="#4f46e5" stopOpacity={0.7} />
+                  </linearGradient>
+                  <linearGradient id="lineGrad2" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="5%" stopColor="#10b981" stopOpacity={0.9} />
+                    <stop offset="95%" stopColor="#059669" stopOpacity={0.7} />
+                  </linearGradient>
+
+                  {/* Area fill gradients (soft glow) */}
+                  <linearGradient id="areaGrad1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#6366f1" stopOpacity={0.15} />
+                    <stop offset="95%" stopColor="#6366f1" stopOpacity={0} />
+                  </linearGradient>
+                  <linearGradient id="areaGrad2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#10b981" stopOpacity={0.15} />
+                    <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <XAxis dataKey="label" hide />
-                <Line type="monotone" dataKey="exp" stroke="url(#lineGrad)" strokeWidth={4} dot={false} />
-                <ReTooltip
-                  contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
+
+                {/* Horizontal grid for readability */}
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.08)" vertical={false} />
+
+                {/* X-axis: show month labels */}
+                <XAxis
+                  dataKey="label"
+                  axisLine={false}
+                  tickLine={false}
+                  tick={{ fill: '#9ca3af', fontSize: 9, fontWeight: 500 }}
+                  dy={4}
                 />
-              </LineChart>
+
+                {/* Y-axis: subtle ticks */}
+                <YAxis
+                  axisLine={false}
+                  tickLine={false}
+                  tick={{ fill: '#6b7280', fontSize: 8 }}
+                  width={35}
+                  tickFormatter={(value) => {
+                    if (value >= 1000) return `${(value / 1000).toFixed(0)}k`;
+                    return value;
+                  }}
+                />
+
+                {/* Tooltip improved */}
+                <Tooltip
+                  content={({ active, payload, label }) => {
+                    if (active && payload && payload.length) {
+                      return (
+                        <div className="!bg-gray-900/95 !backdrop-blur-md !rounded-xl !px-2 sm:!px-3 !py-1.5 sm:!py-2 !shadow-lg !border !border-white/10 !text-xs">
+                          <p className="!text-white/60 !mb-0.5 sm:!mb-1 !text-[9px] sm:!text-[10px] !uppercase !tracking-wider">{label}</p>
+                          {payload.map((entry, index) => (
+                            <div key={index} className="!flex !items-center !gap-1.5 sm:!gap-2 !text-white">
+                              <span
+                                className="!w-1.5 sm:!w-2 !h-1.5 sm:!h-2 !rounded-full !flex-shrink-0"
+                                style={{ backgroundColor: entry.color }}
+                              ></span>
+                              <span className="!capitalize !text-[9px] sm:!text-[11px] !font-medium !break-words">
+                                {entry.name}: {entry.value}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      );
+                    }
+                    return null;
+                  }}
+                />
+
+                {/* Legend: Modern styling */}
+                <Legend
+                  verticalAlign="top"
+                  align="right"
+                  iconType="circle"
+                  iconSize={6}
+                  wrapperStyle={{ 
+                    fontSize: '9px', 
+                    fontWeight: 'bold',
+                    color: '#6b7280', 
+                    paddingBottom: '10px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em'
+                  }}
+                />
+
+                {/* Area fills (under the lines) for depth */}
+                <Area
+                  type="monotone"
+                  dataKey="sell"
+                  name="Sells"
+                  stroke="none"
+                  fill="url(#areaGrad1)"
+                  fillOpacity={1}
+                  legendType="none"
+                />
+                <Area
+                  type="monotone"
+                  dataKey="collection"
+                  name="Collection"
+                  stroke="none"
+                  fill="url(#areaGrad2)"
+                  fillOpacity={1}
+                  legendType="none"
+                />
+
+                {/* Lines with high-end polished dots */}
+                <Line
+                  type="monotone"
+                  dataKey="sell"
+                  name="Sells"
+                  stroke="url(#lineGrad1)"
+                  strokeWidth={3}
+                  dot={{
+                    r: 3.5,
+                    strokeWidth: 2,
+                    stroke: '#fff',
+                    fill: '#6366f1',
+                    fillOpacity: 1,
+                    strokeOpacity: 1,
+                  }}
+                  activeDot={{
+                    r: 5.5,
+                    strokeWidth: 0,
+                    fill: '#4f46e5',
+                  }}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="collection"
+                  name="Collection"
+                  stroke="url(#lineGrad2)"
+                  strokeWidth={3}
+                  dot={{
+                    r: 3.5,
+                    strokeWidth: 2,
+                    stroke: '#fff',
+                    fill: '#10b981',
+                    fillOpacity: 1,
+                    strokeOpacity: 1,
+                  }}
+                  activeDot={{
+                    r: 5.5,
+                    strokeWidth: 0,
+                    fill: '#059669',
+                  }}
+                />
+              </ComposedChart>
             </ResponsiveContainer>
           </div>
         </div>
 
         {/* Button */}
-        <button className="!mt-8 !w-full !bg-indigo-600 hover:!bg-indigo-700 !text-white !py-4 md:!py-5 !rounded-2xl !font-black !shadow-xl !shadow-indigo-100 !transition-all active:!scale-[0.98] !group !flex !items-center !justify-center !gap-3">
-          Explore Analytics Report
-          <svg className="!w-5 !h-5 group-hover:!translate-x-1 !transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </button>
+
       </div>
     </div>
   );

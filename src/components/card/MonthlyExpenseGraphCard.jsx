@@ -13,7 +13,7 @@ import { TrendingDown } from "lucide-react";
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-gray-900 text-white !px-4 !py-3 !rounded-2xl shadow-2xl border border-gray-700/50">
+      <div className="!bg-gray-900/95 !backdrop-blur-md text-white !px-4 !py-3 !rounded-2xl shadow-2xl border border-white/10">
         <p className="text-xs font-bold text-gray-300 uppercase tracking-wider">{label}</p>
         <p className="text-lg font-black text-rose-400 mt-1">
           ৳{payload[0].value.toLocaleString()}
@@ -45,21 +45,21 @@ export default function MonthlyExpenseGraphCard({ expenses, currentMonthExpense 
     : 0;
 
   return (
-    <div className="!bg-white !rounded-3xl !shadow-sm !border !border-gray-100 !overflow-hidden !flex !flex-col !h-full !transition-all hover:!shadow-2xl">
+    <div className="glass-modern !rounded-3xl !overflow-hidden !flex !flex-col !h-full !transition-all">
       {/* Header */}
       <div className="!p-4 md:!p-6">
         <div className="!flex !flex-col sm:!flex-row !justify-between !items-start sm:!items-center !gap-3">
           <div>
-            <h2 className="!text-lg md:!text-xl !font-black !text-gray-800 !tracking-tight">
-              Monthly <span className="!text-rose-600">Expense</span> Flow
+            <h2 className="!text-lg md:!text-xl !font-black !text-white !tracking-tight">
+              Monthly <span className="text-vibrant-pink">Expense</span> Flow
             </h2>
-            <p className="!text-[10px] !font-bold !text-gray-400 !uppercase !tracking-widest !mt-0.5">
+            <p className="!text-[10px] !font-bold !text-slate-300 !uppercase !tracking-widest !mt-0.5">
               Spending Trend
             </p>
           </div>
-          <div className="!flex !items-center !gap-2 !px-3 !py-1.5 !bg-rose-50 !rounded-xl !border !border-rose-100">
-            <TrendingDown size={14} className="!text-rose-600" strokeWidth={3} />
-            <span className="!text-[10px] !font-black !text-rose-600">
+          <div className="!flex !items-center !gap-2 !px-3 !py-1.5 !bg-white/10 !rounded-xl !border !border-white/10 !backdrop-blur-sm">
+            <TrendingDown size={14} className="!text-rose-400" strokeWidth={3} />
+            <span className="!text-[10px] !font-black !text-rose-300">
               ৳{(totalExpense / 1000000).toFixed(2)}M
             </span>
           </div>
@@ -68,17 +68,17 @@ export default function MonthlyExpenseGraphCard({ expenses, currentMonthExpense 
 
       {/* Stats Row */}
       <div className="!grid !grid-cols-3 !gap-2 !px-4 md:!px-6 !pb-4">
-        <div className="!bg-gradient-to-br !from-rose-50 !to-pink-50 !rounded-2xl !p-3 !border !border-rose-100 !text-center">
+        <div className="!bg-white/5 !backdrop-blur-sm !rounded-2xl !p-3 !border !border-white/5 !text-center">
           <p className="!text-[9px] !font-black !text-rose-400 !uppercase !tracking-widest !mb-0.5">Peak</p>
-          <p className="!text-sm !font-black !text-rose-700">৳{(peakExpense / 1000).toFixed(0)}k</p>
+          <p className="!text-sm !font-black !text-rose-200">৳{(peakExpense / 1000).toFixed(0)}k</p>
         </div>
-        <div className="!bg-gradient-to-br !from-orange-50 !to-amber-50 !rounded-2xl !p-3 !border !border-orange-100 !text-center">
+        <div className="!bg-white/5 !backdrop-blur-sm !rounded-2xl !p-3 !border !border-white/5 !text-center">
           <p className="!text-[9px] !font-black !text-orange-400 !uppercase !tracking-widest !mb-0.5">Avg</p>
-          <p className="!text-sm !font-black !text-orange-700">৳{(avgExpense / 1000).toFixed(0)}k</p>
+          <p className="!text-sm !font-black !text-orange-200">৳{(avgExpense / 1000).toFixed(0)}k</p>
         </div>
-        <div className="!bg-gradient-to-br !from-violet-50 !to-purple-50 !rounded-2xl !p-3 !border !border-violet-100 !text-center">
+        <div className="!bg-white/5 !backdrop-blur-sm !rounded-2xl !p-3 !border !border-white/5 !text-center">
           <p className="!text-[9px] !font-black !text-violet-400 !uppercase !tracking-widest !mb-0.5">May</p>
-          <p className="!text-sm !font-black !text-violet-700">৳{(currentMonthExpense / 1000).toFixed(0)}k</p>
+          <p className="!text-sm !font-black !text-violet-200">৳{(currentMonthExpense / 1000).toFixed(0)}k</p>
         </div>
       </div>
 
@@ -98,7 +98,7 @@ export default function MonthlyExpenseGraphCard({ expenses, currentMonthExpense 
                 <stop offset="100%" stopColor="#be123c" />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
             <XAxis
               dataKey="month"
               axisLine={false}

@@ -5,7 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
     "../application/views/**/*.php", // 👈 IMPORTANT for CodeIgniter
   ],
-  prefix: "tw-",
+  
   theme: {
     extend: {},
   },

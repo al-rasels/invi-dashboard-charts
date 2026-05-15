@@ -71,37 +71,37 @@ export default function MonthlySalesCard({ salesData: rawSalesData }) {
 
   return (
     <div
-      className="!bg-white !rounded-2xl !shadow-sm hover:!shadow-xl !transition-all !duration-500 !overflow-hidden !flex !flex-col !h-full"
+      className="glass-modern !rounded-2xl !transition-all !duration-500 !overflow-hidden !flex !flex-col !h-full"
     >
       {/* Header */}
-      <div className="!flex !flex-col sm:!flex-row !items-start sm:!items-center !justify-between !px-4 md:!px-6 !py-4 !border-b !border-gray-100 !gap-4">
-        <h2 className="!text-lg md:!text-xl !font-bold !text-gray-800 !tracking-tight">
+      <div className="!flex !flex-col sm:!flex-row !items-start sm:!items-center !justify-between !px-4 md:!px-6 !py-4 !border-b !border-white/10 !gap-4">
+        <h2 className="!text-lg md:!text-xl !font-bold !text-white !tracking-tight">
           Daily Sales Performance
         </h2>
         <div className="!flex !items-center !gap-1 md:!gap-2 !flex-wrap">
           <button
             onClick={handleZoomIn}
-            className="!p-1.5 md:!p-2 hover:!bg-gray-100 !rounded-full !transition-colors !duration-200 !text-gray-500 hover:!text-gray-900"
+            className="!p-1.5 md:!p-2 !bg-white/10 hover:!bg-white/20 !rounded-full !transition-colors !duration-200 !text-slate-300 hover:!text-white !backdrop-blur-sm"
             title="Zoom In"
           >
             <AiOutlinePlusCircle size={18} />
           </button>
           <button
             onClick={handleZoomOut}
-            className="!p-1.5 md:!p-2 hover:!bg-gray-100 !rounded-full !transition-colors !duration-200 !text-gray-500 hover:!text-gray-900"
+            className="!p-1.5 md:!p-2 !bg-white/10 hover:!bg-white/20 !rounded-full !transition-colors !duration-200 !text-slate-300 hover:!text-white !backdrop-blur-sm"
             title="Zoom Out"
           >
             <AiOutlineMinusCircle size={18} />
           </button>
           <button
             onClick={handleReset}
-            className="!p-1.5 md:!p-2 hover:!bg-gray-100 !rounded-full !transition-colors !duration-200 !text-gray-500 hover:!text-gray-900"
+            className="!p-1.5 md:!p-2 !bg-white/10 hover:!bg-white/20 !rounded-full !transition-colors !duration-200 !text-slate-300 hover:!text-white !backdrop-blur-sm"
             title="Reset"
           >
             <FaHome size={16} />
           </button>
           <button
-            className="!p-1.5 md:!p-2 hover:!bg-gray-100 !rounded-full !transition-colors !duration-200 !text-gray-500 hover:!text-gray-900 !ml-2"
+            className="!p-1.5 md:!p-2 !bg-white/10 hover:!bg-white/20 !rounded-full !transition-colors !duration-200 !text-slate-300 hover:!text-white !ml-2 !backdrop-blur-sm"
             title="Menu"
           >
             <HiOutlineMenu size={18} />
@@ -110,22 +110,22 @@ export default function MonthlySalesCard({ salesData: rawSalesData }) {
       </div>
 
       {/* Stats Summary */}
-      <div className="!grid !grid-cols-3 !gap-2 !px-4 md:!px-6 !py-4 !bg-gradient-to-r !from-gray-50/50 !to-white">
+      <div className="!grid !grid-cols-3 !gap-2 !px-4 md:!px-6 !py-4 !bg-white/5 !backdrop-blur-sm">
         <div className="!text-center">
-          <p className="!text-[10px] md:!text-xs !text-gray-400 !uppercase !font-bold !tracking-widest !mb-1">Peak</p>
-          <p className="!text-sm md:!text-lg !font-black !text-emerald-600">৳{peakValue.toLocaleString()}</p>
+          <p className="!text-[10px] md:!text-xs !text-slate-300 !uppercase !font-bold !tracking-widest !mb-1">Peak</p>
+          <p className="!text-sm md:!text-lg !font-black !text-emerald-400">৳{peakValue.toLocaleString()}</p>
         </div>
-        <div className="!text-center !border-x !border-gray-100">
-          <p className="!text-[10px] md:!text-xs !text-gray-400 !uppercase !font-bold !tracking-widest !mb-1">
+        <div className="!text-center !border-x !border-white/10">
+          <p className="!text-[10px] md:!text-xs !text-slate-300 !uppercase !font-bold !tracking-widest !mb-1">
             Avg
           </p>
-          <p className="!text-sm md:!text-lg !font-black !text-indigo-600">৳{avgValue.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
+          <p className="!text-sm md:!text-lg !font-black text-vibrant-indigo">৳{avgValue.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
         </div>
         <div className="!text-center">
-          <p className="!text-[10px] md:!text-xs !text-gray-400 !uppercase !font-bold !tracking-widest !mb-1">
+          <p className="!text-[10px] md:!text-xs !text-slate-300 !uppercase !font-bold !tracking-widest !mb-1">
             Total
           </p>
-          <p className="!text-sm md:!text-lg !font-black !text-purple-600">৳{(totalValue / 1000).toFixed(1)}k</p>
+          <p className="!text-sm md:!text-lg !font-black text-vibrant-pink">৳{(totalValue / 1000).toFixed(1)}k</p>
         </div>
       </div>
 
@@ -147,7 +147,7 @@ export default function MonthlySalesCard({ salesData: rawSalesData }) {
             </defs>
             <CartesianGrid
               strokeDasharray="3 3"
-              stroke="#f3f4f6"
+              stroke="rgba(255,255,255,0.05)"
               vertical={false}
             />
             <XAxis
